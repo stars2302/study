@@ -5,18 +5,73 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#birthdate" ).datepicker();
+  } );
+  </script>
 </head>
 <body>
   <form action="dt.php" method="post">
-    <p>
-      <label for="name">이름 : </label>
-      <input id="name" type="text" name="dt-name"/>
-    </p>
+    <fieldset>
+      <legend>필수 입력 사항</legend>
+      <p>
+        <label for="name">이름 : </label>
+        <input id="name" type="text" name="dt-name"/>
+      </p>
+    
+      <p>
+        <label for="email">이메일 : </label>
+        <input id="email" type="email" name="dt-email"/>
+      </p>
   
-    <p>
-      <label for="email">이메일 : </label>
-      <input id="email" type="email" name="dt-email"/>
-    </p>
+      <p>
+        <label for="password">비밀번호 : </label>
+        <input id="password" type="password" name="dt-pw"/>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>부가 입력 사항</legend>
+      <p>
+        <label for="birthdate">생년월일 : </label>
+        <input id="birthdate" type="text" name="dt-date"/>
+        <!-- jqueryui.com -> datepicker -->
+      </p>
+      <p>
+        <span>거주지를 선택해주세요.</span>
+        <select name="dt-address" id="">
+          <option value="서울시">서울시</option>
+          <option value="경기도">경기도</option>
+          <option value="충청도">충청도</option>
+          <option value="제주도">제주도</option>
+        </select>
+      </p>
+      <p>
+        <span>취미를 선택해주세요.</span>
+        <label for="reading">독서</label>
+        <input id="reading" type="checkbox" value="독서" name="bt-interst">
+
+        <label for="travel">여행</label>
+        <input id="travel" type="checkbox" value="여행" name="bt-interst">
+
+        <label for="coding">코딩</label>
+        <input id="coding" type="checkbox" value="코딩" name="bt-interst">
+      </p>
+      <p>
+        <span>성별</span>
+        <label for="male">남성</label>
+        <input type="radio" value="남성" id="male" name="bt-sex">
+
+        <label for="female">여성</label>
+        <input type="radio" value="여성" id="female" name="bt-sex">
+      </p>
+    </fieldset>
+    
+
     <p>
       <input type="submit" value="회원가입" />
     </p>
@@ -30,12 +85,18 @@
       "get" : 암호화X, 주소표시줄 끝에 표시됨. 전송 시 길이제한 있음. ((검색, 게시판의 용도))
       "post" : 암호화, get에 비해 많은 데이터 전송 가능. ((로그인, 회원가입의 용도))
   
+  ((((fieldset, legend)))) -> 구현된 모양 보기.
+  - fieldset : 영역을 나눠주는 용도. (border)
+  - legend : 그 영역의 제목
+  
   ((((((label, input))))))
   - label의 필수 요소 : for 
     - for : input의 id와 연결. (-> label 클릭 시 input이 focus됨.)
   - input의 필수 요소 : id, type, name
     - id : 고유 id
-    - type : text, email 등 input에 들어갈 정보의 타입.
+    - type : text, email 등 input에 들어갈 정보의 타입. (+ date, cheakbox,radio)
+      ="date" : 달력모양이 나옴. but ie는 지원을 하지 않아 jqueryui를 활용하는 것을 추천.
+      ="cheakbox", ="radio" : cheakbox는 복수선택, radio는 단수선택
     - name : 데이터베이스를 관리하는 개발자와 협업하여 정해야되는 이름.
 
   +++ label, input은 inline이기에 텍스트 속성을 가지고 있음. 고로 p태그를 활용하여 감싸주었음. +++
