@@ -13,6 +13,11 @@
     $( "#birthdate" ).datepicker();
   } );
   </script>
+  <style>
+    *{margin:0; padding: 0;}
+    .btn {width: 50px; height: 50px; background: none; border:none;}
+    .btn img{width: 100%;}
+  </style>
 </head>
 <body>
   <form action="dt.php" method="post">
@@ -42,8 +47,9 @@
         <!-- jqueryui.com -> datepicker -->
       </p>
       <p>
-        <span>거주지를 선택해주세요.</span>
+        <span>거주지</span>
         <select name="dt-address" id="">
+          <option value="" disabled>거주지를 선택해주세요.</option>
           <option value="서울시">서울시</option>
           <option value="경기도">경기도</option>
           <option value="충청도">충청도</option>
@@ -53,7 +59,7 @@
       <p>
         <span>취미를 선택해주세요.</span>
         <label for="reading">독서</label>
-        <input id="reading" type="checkbox" value="독서" name="bt-interst">
+        <input id="reading" type="checkbox" value="독서" name="bt-interst" checked>
 
         <label for="travel">여행</label>
         <input id="travel" type="checkbox" value="여행" name="bt-interst">
@@ -69,11 +75,48 @@
         <label for="female">여성</label>
         <input type="radio" value="여성" id="female" name="bt-sex">
       </p>
+      <p>
+        <span>사진을 등록해주세요.</span>
+        <input type="file" name="bt-avatar">
+      </p>
+      <p>
+        <span>방문경로를 말씀해주세요.</span>
+        <textarea name="bt-msg" id="" cols="30" rows="10"></textarea>
+      </p>
+      <p>
+        <span>회원약관</span>
+        <textarea name="bt-policy" readonly cols="100" rows="10">제 1조(회원의 구분)
+
+① “회원”은 비회원, 준회원, 정회원으로 구분한다.
+
+-“비회원”은 상담중이거나 상담 후 가입(입회)가 이뤄지지 않은 회원, 탈퇴한 회원을 의미한다.
+
+-“준회원”은 가입(입회) 후 1개월 이상 활동이 없거나, 휴강 또는 연기중인 회원을 의미한다.
+
+-“정회원”은 가입(입회) 후 현재 활동이 진행중에 있는 회원을 의미한다.
+
+​
+
+제 2조(약관의 효력발생)
+
+① 이 약관은 센터에서 홈페이지 또는 SNS 게재, 인쇄된 약관을 회원에게 교부, 또는 구두설명 중 한가지 이상의 방법에 의해 그 효력이 발생한다.
+
+② 센터의 이용약관 변경이 있을 경우 적절한 절차를 거쳐 변경할 수 있으며 변경된 약관은 제1항과 동일한 방법으로 공지함으로서 그 효력이 발생한다.
+
+③ 회원은 변경된 약관에 동의하지 않을 경우 계약해지를 요청할 수 있으며 변경된 약관의 공지일 이후 계속적인 체육시설 및 서비스 이용을 원하여 등록한 회원은 변경된 약관에 동의한 것으로 간주한다.
+[출처] 회원약관|작성자 루원가정농구교실
+        </textarea>
+      </p>
     </fieldset>
     
 
     <p>
       <input type="submit" value="회원가입" />
+      <input type="reset" value="재작성" /> <!-- 잘 안씀 -->
+      <button type="submit">전송</button>
+      <hr/>
+      <input class="btn" type="image" src="../img/send-icon.png" alt="send"/>
+      <button class="btn" type="submit"><img src="../img/send-icon.png" alt="send"></button>
     </p>
   </form>
   
@@ -94,12 +137,29 @@
     - for : input의 id와 연결. (-> label 클릭 시 input이 focus됨.)
   - input의 필수 요소 : id, type, name
     - id : 고유 id
-    - type : text, email 등 input에 들어갈 정보의 타입. (+ date, cheakbox,radio)
+    - type : text, email 등 input에 들어갈 정보의 타입. (+ date, cheakbox, radio, submit, image)
       ="date" : 달력모양이 나옴. but ie는 지원을 하지 않아 jqueryui를 활용하는 것을 추천.
       ="cheakbox", ="radio" : cheakbox는 복수선택, radio는 단수선택
     - name : 데이터베이스를 관리하는 개발자와 협업하여 정해야되는 이름.
 
+  ((((select, option))))
+  - select의 요소 : name
+  - option의 요소 : value, disabled
+    - value : 값
+    - disabled : 선택하지 못하도록 막아놓을 때 사용.
+  
+  ((((((textarea))))))
+  - textarea : 문장 따위의 메세지를 받고 싶을 때 사용. (설문조사 중 '개선해야 할 점을 적어주세요.')
+  - textarea의 필수 요소 : name, rows, cols
+    - name : 데이터베이스를 관리하는 개발자와 협업하여 정해야되는 이름.
+    - rows : 세로 줄 수
+    - cols : 가로 글자 수
+    - readonly : 선택은 가능하지만, 수정 불가능한 상태.
+  **textarea 태그안에 내용을 작성하면 작성된 채로 출력이 됨.(공백포함) -> 따라서 아무내용도 없이 두는게 베스트**
+
+
   +++ label, input은 inline이기에 텍스트 속성을 가지고 있음. 고로 p태그를 활용하여 감싸주었음. +++
+  +++ cheaked : option, cheakbox, radio 등 선택하는 기능일 경우 cheaked의 속성을 추가하면 체크된 상태로 출력 +++
 
   
    -->
