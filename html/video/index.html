@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <video controls autoplay muted loop poster>
+    <source src="video/sample.ogv" type="video/ogv"/>
+    <source src="video/sample.mp4" type="video/mp4"/>
+    <source src="video/sample.webm" type="video/webm"/>
+    <p>이 브라우저는 video 요소를 지원하지 않습니다.</p>
+  </video>
+
+  <!-- 
+  (((((video)))))
+  - controls : 비디오 컨트롤(없을 경우 play조차 안됨. 필수!)
+  - autoplay : 접속할 시 자동으로 play. 
+  ** autoplay 사용 시 muted 필수!! -> 접근성 때문.(시각장애인은 정보를 음성으로 듣는데, 이 때 영상소리와 겹치면 정보누락)
+  - muted : 소리 음소거
+  - loop : 반복재생
+  - poster="경로" : 썸네일
+  -->
+  
+</body>
+</html>
