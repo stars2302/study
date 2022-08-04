@@ -8,11 +8,90 @@
   </head>
   <body>
     <h1>리스트 태그의 종류</h1>
-    <h2>Unordered list 비순차 목록</h2>
+    <h2>Unordered list 비순차 목록</h2> <!--bullet 목록표시(까만점)-->
+    <ul>
+      <!-- <h3>title</h3> 안됨! ul의 자식은 무조건 li로만! -> ul과 형제로 놓는것이 베스트. -->
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+    </ul>
+
     <hr/>
     <h2>Ordered list 순차 목록</h2>
+    <ul>
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+    </ul>
+
     <hr/>
-    <h2>Definition list 정의 목록</h2>
+    <h2>Definition list 정의 목록</h2><!--다음 nav 펼치기 후 목록들-->
+    <dl>
+      <dt>defintion term 용어 이름</dt>
+      <dd>definition description 용어 설명</dd>
+      <dd>definition description 용어 설명</dd>
+      <dd>definition description 용어 설명</dd>
+      <dd>definition description 용어 설명</dd>
+    </dl>
+    <dl>
+      <dt>defintion term 용어 이름</dt>
+      <dd>definition description 용어 설명</dd>
+      <dt>defintion term 용어 이름</dt>
+      <dd>definition description 용어 설명</dd>
+      <dt>defintion term 용어 이름</dt>
+      <dd>definition description 용어 설명</dd>
+    </dl>
+    <!-- 부적합한 예시
+    <dl>
+      <dt>defintion term 용어 이름</dt>
+      <dt>defintion term 용어 이름</dt>
+      <dt>defintion term 용어 이름</dt>
+      <dd>definition description 용어 설명</dd>
+    </dl> -->
+
+    <hr/>
+    <h2>서브메뉴</h2>
+    <ul>
+      <li>회사소개
+        <ul>
+          <li>인사말</li>
+          <li>연혁</li>
+          <li>비전</li>
+        </ul>
+      </li>
+      <li>주요실적
+        <ul>
+          <li>모바일</li>
+          <li>웹페이지</li>
+          <li>어플리케이션</li>
+        </ul>
+      </li>
+      <li>Contact Us</li>
+    </ul>
+
+    <!-- 잘못된 예시! li는 '리스트'임. 동일한 중요도의 li를 따로 나누는것은 li의 존재이유와 합당하지 않음.
+    <ul>
+      <li>회사소개
+        <ul>
+          <li>인사말</li>
+          <li>연혁</li>
+          <li>비전</li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul>
+      <li>주요실적
+        <ul>
+          <li>모바일</li>
+          <li>웹페이지</li>
+          <li>어플리케이션</li>
+        </ul>
+      </li>
+    </ul> -->
+
     <hr/>
   </body>
 </html>
