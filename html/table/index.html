@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<title>table 태그</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+  <!--
+  table : 시간표, 달력, 게시판에 이용
+    tr : table row 
+      th : table heading (scope="col,row" col:세로, row:가로)(bold, 가운데 정렬)
+      td : table data(colspan="2"(칸), rowspan="2"(줄) -> 차지하는 칸,줄 수)
+  captin : 부가설명
+  **thead, tbody, tfoot : 검색엔진에 용의.
+  -->
+  <h1>table</h1>
+  <table border="1">
+    <caption>
+      <h2>분기별 실적표</h2>
+      <p>2018년도 4/4분기 매출 실적표</p>
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">구분</th>
+        <th scope="col">title 1</th>
+        <th scope="col">title 2</th>
+        <th scope="col">title 3</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">no. 1</th>
+        <td rowspan="2">data 11</td>
+        <td colspan="2">data 12</td>
+        <!-- <td>data 13</td> -->
+      </tr>
+  
+      <tr>
+        <th scope="row">no. 2</th>
+        <!-- <td>data 21</td> -->
+        <td colspan="2">data 22</td>
+        <!-- <td>data 23</td> -->
+      </tr>
+  
+      <tr>
+        <th scope="row">no. 3</th>
+        <td>data 31</td>
+        <td>data 32</td>
+        <td>data 33</td>
+      </tr>  
+    </tbody>
+    
+    <tfoot>
+      <tr>
+        <th scope="row">total</th>
+        <td>total 1</td>
+        <td>total 2</td>
+        <td>total 3</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>
