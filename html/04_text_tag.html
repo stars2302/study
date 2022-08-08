@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>텍스트 관련 태그들</title>
+</head>
+<body>
+  <h1>텍스트 관련 태그들</h1>
+  <h2>강조</h2>
+  <p>문장 중 <i>일부</i>를 <b>강조</b> 할 때 사용하는 태그</p>
+  <p>문장 중 <em>일부</em>를 <strong><strong>강조</strong>할 때 사용하는 태그</strong></p>
+  <!--
+          기울임    굵게
+  모양만     i        b
+  의미도     em     strong -> 검색엔진이 정보를 수집할 때 알아갈 수 있도록!
+-->
+
+  <hr>
+  <h2>약어</h2>
+  <p>
+    <abbr title="Hypertext Markup Language">HTML</abbr>은 웹페이지의 내용을 전달한다.
+  </p>
+  <h2>전문용어</h2>
+  <p>
+    <dfn title="image replacement">IR기법</dfn>을 사용하면 로고의 텍스트대신에 그림을 표현할 수 있다.
+  </p>
+  <!--
+  - abbr : 약어를 풀어 설명해주고 검색엔진에도 도움을 줌. hypertext를 검색해도 나올 수 있도록.
+  - dfn : 전문용어를 풀어 설명해주고 검색엔진에도 도움을 줌.
+  -->
+
+  <h2>인용문</h2>
+  <blockquote cite="https://www.wah.or.kr:444/Accessibility/define.asp">
+    <p> 
+      월드 와이드 웹 (World Wide Web)을 창시한 팀 버너스 리(Tim Berners-Lee)는 웹이란
+      '장애에 구애 없이 모든 사람들이 손쉽게 정보를 공유할 수 있는 공간'이라고 정의하였으며,
+      웹 콘텐츠를 제작할 때에는 장애에 구애됨이 없이 누구나 접근할 수 있도록 제작하여야
+      한다고 하였다. 이렇듯 웹 창시자가 웹의 기본적 철학에서 웹 접근성 부문을 강조함에도 불구하고,
+      웹 접근성을 바라보는 입장에 따라 다르게 정의하고 있다.
+    </p>
+  </blockquote>
+  <p> 
+    월드 와이드 웹 (World Wide Web)을 창시한 <q cite="https://www.wah.or.kr:444/Accessibility/define.asp">팀 버너스 리(Tim Berners-Lee)</q>는 웹이란
+    '장애에 구애 없이 모든 사람들이 손쉽게 정보를 공유할 수 있는 공간'이라고 정의하였으며,
+    웹 콘텐츠를 제작할 때에는 장애에 구애됨이 없이 누구나 접근할 수 있도록 제작하여야
+    한다고 하였다. 이렇듯 웹 창시자가 웹의 기본적 철학에서 웹 접근성 부문을 강조함에도 불구하고,
+    웹 접근성을 바라보는 입장에 따라 다르게 정의하고 있다.
+  </p>
+  <!--
+  - blockquote : 다른 사이트에서 문장을 그대로 가져올 때, cite속성을 이용해 출처를 밝힐 수 있음. (문장)
+  - q : 다른 사이트에서 단어를 그대로 가져올 때, cite속성을 이용해 출처를 밝힐 수 있음. (단어)
+  -->
+</body>
+</html>
