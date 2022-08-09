@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리스트</title>
+</head>
+<body>
+  <!--list 태그 : 동급의 중요도의 요소들이 나열될 때 사용-->
+  <h1>리스트</h1>
+  <h2>비순차 목록 Unorderd List</h2>
+  <ul>
+    <li>list item</li>
+    <li>list item</li>
+    <li>list item</li>
+    <li>list item</li>
+  </ul>
+  <h2>순차 목록 Orderd List - 법조항, 약관 ...</h2>
+  <ol>
+    <li>list item</li>
+    <li>list item</li>
+    <li>list item</li>
+    <li>list item</li>
+  </ol>
+  <!--w3schools list-type-->
+  <ol start="5" type="a">
+    <li>list item</li>
+    <li>list item</li>
+    <li>list item</li>
+    <li>list item</li>
+  </ol>
+  <!--
+  - start = "$" -> 시작번호 지정
+  - type ="A","a","1","I","i" -> 번호모양 지정
+  -->
+  <h2>정의 목록 Definition List</h2>
+  <dl>
+    <dt>definition term - 용어정의, 제목성격</dt>
+    <dd>definition description - 용어 설명</dd>
+    <dd>definition description - 용어 설명</dd>
+    <dd>definition description - 용어 설명</dd>
+  </dl>
+
+  <hr/>
+
+  <h2>주의점</h2>
+  <h3>1. 리스트의 아이템은 적어도 둘 이상은 되어야 한다. 아이템이 하나일 경우 ul,li는 부적합함.</h3>
+  <ul>
+    <li>list item</li>
+  </ul>
+  <ul>
+    <li>list item</li>
+  </ul>
+  <ul>
+    <li>list item</li>
+  </ul>
+
+  <hr/>
+
+  <h3>2. ul의 자식요소로는 li만! 올 수 있음. 다른 어떠한 태그는 올 수 없음.</h3>
+  <h3>title</h3><!--정상-->
+  <ul>
+    <h3>title</h3><!--오류-->
+    <li><h3>title</h3></li><!--정상-->
+    <li>list item</li>
+    <li>list item</li>
+    <li>list item</li>
+  </ul>
+
+  <hr/>
+
+  <h3>3. dt>dd는 바람직하지 않음. 용어가 2개인데 설명이 1개? 이상적이지 않아.</h3>
+  <dl><!--정상-->
+    <dt>definition term - 용어정의, 제목성격</dt>
+    <dd>definition description - 용어 설명</dd>
+    <dd>definition description - 용어 설명</dd>
+    <dd>definition description - 용어 설명</dd>
+  </dl>
+  <dl><!--정상-->
+    <dt>definition term - 용어정의, 제목성격</dt>
+    <dd>definition description - 용어 설명</dd>
+    <dt>definition term - 용어정의, 제목성격</dt>
+    <dd>definition description - 용어 설명</dd>
+    <dt>definition term - 용어정의, 제목성격</dt>
+    <dd>definition description - 용어 설명</dd>
+  </dl>
+  <dl><!--비정상-->
+    <dt>definition term - 용어정의, 제목성격</dt>
+    <dt>definition term - 용어정의, 제목성격</dt>
+    <dt>definition term - 용어정의, 제목성격</dt>
+    <dd>definition description - 용어 설명</dd>
+  </dl>
+
+  <hr/>
+
+  <h2>메뉴</h2>
+  <ul>
+    <li>About us
+      <ul>
+        <li>vision</li>
+        <li>history</li>
+        <li>location
+          <ul>
+            <li>seoul</li>
+            <li>jeju</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Works</li>
+    <li>Services</li>
+    <li>Contact us</li>
+  </ul>
+
+  <!--
+    menu를 작성할 때!
+    -> 원뎁스 콘텐츠 !먼저! 작성 후 투뎁스 콘텐츠를 작성할 것. (그래야 실수가 적어짐.)
+  -->
+</body>
+</html>
