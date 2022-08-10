@@ -45,6 +45,22 @@
   -----------------------------------------
   ++ type="reset"은 입력한 내용들 초기화하는... -> 근래 사용하지 않음. 잘못눌렀다가 초기화되면 사이트를 꺼버리는 경우가 많지 않을까
   
+  ------------label,select, option 태그------------
+  select name="" id=""
+  option value=""
+  -------------------------------------------------
+
+  ------------------radio--------------------------
+  label for=""
+  input type="radio" id="" name=""
+  ++ name이 없으면 중복선택이 됨.!
+  -------------------------------------------------
+
+  ----------------checkbox-------------------------
+  label for=""
+  input type="checkbox" id="" name="" value=""
+  ++ name이 같지 않아도 되지만, 되도록 일치시키자
+  -------------------------------------------------
   -->
 
   <h1>회원가입</h1>
@@ -69,11 +85,40 @@
 
     <fieldset>
       <legend>부가 입력 사항</legend>
-      <form action="">
-        <p>
-          <label for=""></label>
-          <input type="text">
-        </p>
+      <form action="#">
+        <div>
+          <label for="address">거주지를 선택해주세요.</label>
+          <select name="address" id="address">
+            <option value="서울시">서울시</option>
+            <option value="경기도">경기도</option>
+            <option value="제주도">제주도</option>
+          </select>
+        </div>
+        <div>
+          <h2>성별을 선택해주세요.</h2>
+          <label for="men">남성</label>
+          <input type="radio" id="men" name="gender" value="남성"/>
+          <label for="women">여성</label>
+          <input type="radio" id="women" name="gender" value="여성"/>
+          
+          <!-- 암묵적코딩? 꼼수! 비추!
+          <label for="men">남성
+            <input type="radio" id="men" name="gender" value="남성"/>
+          </label>
+          <label for="women">여성
+            <input type="radio" id="women" name="gender" value="여성"/>
+          </label> 
+          -->
+        </div>
+        <div>
+          <h2>관심사항 체크</h2>
+          <label for="HTML">HTML</label><!--약어는 대문자로-->
+          <input type="checkbox" name="interest" id="HTML" value="HTML"/>
+          <label for="CSS">CSS</label>
+          <input type="checkbox" name="interest" id="CSS" value="CSS"/>
+          <label for="Javascript">Javascript</label>
+          <input type="checkbox" name="interest" id="Javascript" value="Javascript"/>
+        </div>
       </form>
     </fieldset>
     
