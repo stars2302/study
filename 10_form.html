@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form 태그</title>
+  <style>
+    button{background: none; border:none;}
+  </style>
+</head>
+<body>
+  <!--
+  FORM : 사용자의 입력을 받아서 처리, 활용 : 회원가입, 로그인, 검색, 메시지전송, 구독신청 등등
+
+  ----------form 태그-----------
+  - action="#" : 사용자에게 입력받은 데이터를 전송할 벡엔드 파일경로. 개발자와 상의하여 작성.
+  - novalidate : 유효성 검사 끄기. (브라우저에서 기본으로 제공하는 ui를 사용자 지정으로 바꿀 때 사용.)
+  - method="get/post" : 데이터 전송 방법. get:암호화X(검색) post:암호화O(회원가입, 로그인)
+  ------------------------------
+  
+  ---------fieldset, legend------------
+  fieldset : 공간을 나눠주는 태그.  legend : fieldset의 제목 태그.
+  -------------------------------------
+  ++ label, input은 글자속성인 인라인레벨. 그래서 p태그로 묶어줬음. div도 상관없음.
+  
+  ------------------label, input-----------------
+  label 
+    - for="" : input의 id와 일치시켜주기. (label클릭 시 input focus됨.)
+  input 
+    - type="text/email/password/image/submit/reset"
+    - name="#" : 개발자와 상의하여 작성.
+    - required : 필수입력. 입력하지 않으면 submit 안됨.
+    - minlength="$", maxlength="$" : 최소/최대 글자 수
+    - value = "hi" : 초기 값. (입력하는 input에 value넣으면 지워서 다시 써야되는 번거로움이 있음.)
+    - placeholder = "입력하세요." : value의 문제점 해결~
+  -------------------------------------------------
+
+  ---------------전송버튼------------------
+  1. <input type="submit" value="전송"/>
+  2. <button>전송</button> -> button태그의 기본 type이 submit임.
+  ------------이미지 전송버튼---------------
+  1. <input type="image" src="경로.jpg" alt="전송"/>
+  2. <button><img src="경로.jpg" alt="전송"/></button>
+  -----------------------------------------
+  ++ type="reset"은 입력한 내용들 초기화하는... -> 근래 사용하지 않음. 잘못눌렀다가 초기화되면 사이트를 꺼버리는 경우가 많지 않을까
+  
+  -->
+
+  <h1>회원가입</h1>
+  <form action="register.php" method="get">
+    <fieldset>
+      <legend>필수 입력 사항</legend>
+      <p>
+        <label for="username">이름 : </label>
+        <input id="username" type="text" name="username" required="required" minlength="2" maxlength="5" placeholder="홍길동"/><!--size="10"-->
+      </p>
+    
+      <p>
+        <label for="useremail">이메일 : </label>
+        <input id="useremail" type="email" name="useremail" required/>
+      </p>
+      
+      <p>
+        <label for="userpw">비밀번호 : </label>
+        <input id="userpw" type="password" name="userpw" required/>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>부가 입력 사항</legend>
+      <form action="">
+        <p>
+          <label for=""></label>
+          <input type="text">
+        </p>
+      </form>
+    </fieldset>
+    
+  
+    <!-- <input type="submit" value="전송"> -->
+    <button>전송</button>
+    <button type="reset">초기화</button>
+
+    <!-- 
+    <button><img src="send.jpg" alt="send"></button>
+    <input type="image" src="send.jpg" alt="send"/>
+    -->
+  </form>
+</body>
+</html>
