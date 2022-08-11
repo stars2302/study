@@ -47,7 +47,7 @@
   ++ type="reset"은 입력한 내용들 초기화하는... -> 근래 사용하지 않음. 잘못눌렀다가 초기화되면 사이트를 꺼버리는 경우가 많지 않을까
   
   ------------select,optgroup,option 태그------------
-  select name="" id=""
+  select name="" id="" multiple(다중선택가능) size="0"(보여지는 option 개수)
     optgroup label=""
       option value=""
   -------------------------------------------------
@@ -186,8 +186,16 @@
         <input type="text" id="phone" name="phone" pattern="[0-9]{1,11}" maxlength="11" title="숫자만 최대 11자리 입력해주세요.">
       </div>
       <div>
-
+        <label for="useremails">이메일 선택</label>
+        <input type="text" id="useremails" name="usermails"/>@
+        <select title="이메일 서비스 선택" multiple size="1">
+          <option value="직접입력">직접입력</option>
+          <option value="naver.com">naver.com</option>
+          <option value="daum.net">daum.net</option>
+          <option value="gamil.com">gamil.com</option>
+        </select>
       </div>
+
     </fieldset>
     
   
@@ -200,5 +208,14 @@
     <input type="image" src="send.jpg" alt="send"/>
     -->
   </form>
+  <hr/>
+  <!-- 진행률
+  <meter value="3" max="10" min="0"></meter> -> ie지원안함
+  <progress value="3" max="10" min="0"></progress> 
+  - css 조절이 어려워 잘 사용하지 않음.
+  -->
+  <div class="progress"> <!--차라리 div로 구현.-->
+    <div class="bar">60</div>
+  </div>
 </body>
 </html>
