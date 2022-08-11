@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>video audio</title>
+</head>
+<body>
+  <!-- caniuse.com -> 브라우저지원여부확인
+    --------------video--------------
+    - src="경로" : 경로
+    - controls : 재생버튼
+    - width, height : css에서 조절하자! ++ height는 조절X, 비율대로 조절되기 때문.
+    - autoplay : 자동재생(muted 꼭 해주자! - 접근성)
+    - muted : 음소거
+    - poster="경로" : 재생 전 대표 이미지(썸네일)
+    - loop : 반복재생
+    - preload = "none/auto" -> none(트래픽X), auto(스트리밍 가능)
+    ++ content부분 : callbackcontent, 대체콘텐츠
+
+    ------------비디오 포맷-------------
+    avi, mpeg, wmv -> 브라우저 지원X (다운로드 됨)
+    mp4, ogv, wedm -> 브라우저 지원O
+
+    ------------오디오 포맷-------------
+    asf -> 브라우저 지원X (다운로드 됨)
+    mp3, ogg, wav -> 브라우저 지원O
+  -->
+  <h1>multimedia</h1>
+  <h2>video</h2>
+
+  <video src="video.mp4" controls autoplay muted></video>
+  <video src="video.mp4" controls muted poster="thumbnail.jpg"></video>
+  <!--무료 2.3GB trffic -> cloudinary.com -> 트래픽 부족할 때 활용하여 cloudinary의 트래픽을 사용하게끔!-->
+
+  <!-- 
+  <video controls autoplay muted>
+    <source src="video.mp4" type="video/mp4"/>
+    <source src="video.ogv" type="video/ogv"/>
+    <source src="video.webM" type="video/webM"/>
+    <p>이 브라우저는 영상을 지원하지 않습니다.</p>
+  </video> 
+  -->
+  <hr/>
+  <h2>audio</h2>
+  <audio src="audio.mp3"></audio>
+</body>
+</html>
