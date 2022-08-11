@@ -28,12 +28,13 @@
   label 
     - for="" : input의 id와 일치시켜주기. (label클릭 시 input focus됨.)
   input 
-    - type="text/email/password/image/submit/reset"
+    - type="text/email/password/url/date/image/submit/reset"
     - name="#" : 개발자와 상의하여 작성.
     - required : 필수입력. 입력하지 않으면 submit 안됨.
     - minlength="$", maxlength="$" : 최소/최대 글자 수
     - value = "hi" : 초기 값. (입력하는 input에 value넣으면 지워서 다시 써야되는 번거로움이 있음.)
     - placeholder = "입력하세요." : value의 문제점 해결~
+    - title = "한글만 입력해주세요." -> input 양식에 어긋났을 때 추가 설명.
   -------------------------------------------------
 
   ---------------전송버튼------------------
@@ -45,9 +46,10 @@
   -----------------------------------------
   ++ type="reset"은 입력한 내용들 초기화하는... -> 근래 사용하지 않음. 잘못눌렀다가 초기화되면 사이트를 꺼버리는 경우가 많지 않을까
   
-  ------------label,select, option 태그------------
+  ------------select,optgroup,option 태그------------
   select name="" id=""
-  option value=""
+    optgroup label=""
+      option value=""
   -------------------------------------------------
 
   ------------------radio--------------------------
@@ -61,6 +63,20 @@
   input type="checkbox" id="" name="" value=""
   ++ name이 같지 않아도 되지만, 되도록 일치시키자
   -------------------------------------------------
+
+  -----------------list 속성-----------------------
+  label for="1"
+  input id="1" type="text" list="2"
+  datalist id="2"
+    option
+  -------------------------------------------------
+
+  -----------------number-------------------------
+  input type="number" min="0"(최소값) max="0"(최대값) step="0"(단위)
+  ** 화살표 ie는 지원안함.
+  --------------------------------------------------
+
+  cleave js -> 전화번호 패턴 만들기
   -->
 
   <h1>회원가입</h1>
@@ -120,6 +136,58 @@
           <input type="checkbox" name="interest" id="Javascript" value="Javascript"/>
         </div>
       </form>
+    </fieldset>
+
+    <fieldset>
+      <legend>HTML5 새로운 타입</legend>
+      <p>
+          <label for="web">website</label>
+          <input id="web" name="web" type="url"/>
+      </p>
+      <p>
+          <label for="userBirth">생년월일</label>
+          <input id="userBirth" name="userBirth" type="date"/>
+      </p>
+      <p>
+          <label for="language">학습할 언어 선택</label>
+          <input id="language" name="language" type="text" list="items"/>
+          <datalist id="items">
+              <option>html</option>
+              <option>css</option>
+              <option>javascript</option>
+          </datalist>
+      </p>
+      <p>
+          <label for="career">경력기간</label>
+          <input id="career" name="career" type="number" min="0" max="10" step="2" value="0"/>
+          <!--필수속성은 앞에 부가적으로 추가한 속성은 뒤에 작성하는 것이 바람직 함.-->
+      </p>
+      <div>
+        <label for="language"></label>
+        <select name="language" id="language">
+          <optgroup label="frontend">
+            <option value="html">html</option>
+            <option value="css">css</option>
+            <option value="javascript">javascript</option>
+          </optgroup>
+          <optgroup label="backend">
+            <option value="asp">asp</option>
+            <option value="jsp">jsp</option>
+            <option value="php">php</option>
+          </optgroup>
+        </select>
+      </div>
+      <div>
+        <label for="skill">숙련도</label>
+        <input type="range" id="skill" name="skill" min="0" max="10" value="5" step="1">
+      </div>
+      <div>
+        <label for="phone"></label>
+        <input type="text" id="phone" name="phone" pattern="[0-9]{1,11}" maxlength="11" title="숫자만 최대 11자리 입력해주세요.">
+      </div>
+      <div>
+
+      </div>
     </fieldset>
     
   
