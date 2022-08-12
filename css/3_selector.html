@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*
+    csslint.net -> id,class를 적재적소 했는지 검사
+
+    1. 태그 선택자 : 특정 태그를 선택. div{} h1{} ...
+    2. 전체 선택자 : 모든 태그를 선택. *{}
+    3. 자손선택자(하위선택자) : 하나의 공백을 활용. div a{}
+    ++ 2,3활용 : div *{} div의 모든 자식 태그들
+    4. class : 둘 이상의 요소에 이름지을 때. .content{}
+    5. id : 유일무이 문서 안에서 단 하나일 경우. #logo{}
+    ++class,id이름 짓기 : 1.숫자로시작X(뒤에사용O) 2.하나의 이름 안에 공백X 3.쓰임과 의미가 일치하도록. 4.한글X
+    6.  : 
+    */
+    *{margin:0;}
+    div *{color:blue;}
+    h1{
+      background-color: silver;
+      color: red;
+      font-weight: bold;
+      font-size: 30px;
+    }
+    #title{
+      text-decoration: underline;
+    }
+
+    .color{
+      color:ddd;
+    }
+    .line{
+      text-decoration: underline;
+    }
+    .weight{
+      font-weight: bold;
+    }
+
+    p{
+      font-size: 18px;
+      background-color: pink;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1 id="title">css 기본 문법</h1>
+    <h2>선택자</h2>
+  </div>
+  <ul>
+    <li class="color">list item</li>
+    <li class="color line">list item</li>
+    <li class="color line weight">list item</li>
+  </ul>
+  <p>
+    <span>Lorem ipsum</span> dolor sit amet consectetur adipisicing elit. Quas culpa odit voluptas. Ut tenetur necessitatibus ipsam impedit, illum in ea ullam fugiat sapiente mollitia. Iste atque id iusto natus fuga?
+  </p>
+  <p>
+    <span>Lorem ipsum</span> dolor sit amet consectetur adipisicing elit. Quas culpa odit voluptas. Ut tenetur necessitatibus ipsam impedit, illum in ea ullam fugiat sapiente mollitia. Iste atque id iusto natus fuga?
+  </p>
+</body>
+</html>
