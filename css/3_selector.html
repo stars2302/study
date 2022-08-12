@@ -13,17 +13,24 @@
     2. 전체 선택자 : 모든 태그를 선택. *{}
     3. 자손선택자(하위선택자) : 자식+손자+손손자.. 하나의 공백을 활용. div a{}
     ++ 2,3활용 : div *{} div의 모든 자식 태그들
+
     4. class : 둘 이상의 요소에 이름지을 때. .content{}
     5. id : 유일무이 문서 안에서 단 하나일 경우. #logo{}
     ++class,id이름 짓기 : 1.숫자로시작X(뒤에사용O) 2.하나의 이름 안에 공백X 3.쓰임과 의미가 일치하도록. 4.한글X
+
     6. 자식선택자 : 친자식. div > h2{}
     7. 인접형제선택자 : +(바로 밑 동생하나) ~(밑 동생들). div+h2 / div~h2
     8. 그룹화 : ,를 활용. #title,.color{}
     9. 속성선택자(attribute selector) : html의 속성을 활용하여 선택.[]를 활용. [target="_blank"]{} a[target]{}
     ++ 9활용 : class가 link로 시작하는~ [class^="link"]{}
+
     10. 가상선택자(pseudo selector) : a태그 관련.(hover는 모든 태그, focus는 input도 사용.)
       :link, :hover(마우스올리면), :active(클릭하면), :visited(링크 방문 후),  :focus(tab키 눌러 focus되면)
     ++hover : horizontal over
+
+    11. 의사요소선택자 : :before(콘텐츠 앞에 가상으로 구현) :after(콘텐츠 뒤에 가상으로 구현)
+    12. 구조선택자 : :nth-child(0){}
+    13. 부정선택자 : :not(태그){}
     */
     
     h1{
@@ -78,6 +85,25 @@
     a:active{background-color: red; color: #fff;}
     a:visited{color: silver;}
     a:focus{background-color: #ddd;}
+
+    .h2:before{
+      content: "before "; color: red;
+    }
+    .h2:after{
+      content: " after "; color: blue;
+    }
+    .h3::before{content: ''; display: inline-block; width: 15px; height: 15px; background-color: #000;
+      margin-right: 10px;}
+    
+    .ul li:first-child{text-decoration: underline;}
+    .ul li:last-child{text-decoration: underline;}
+    .ul li:nth-child(3){text-decoration: underline;}
+    .ul li:nth-child(2n){background-color: silver;}
+    .ul li:nth-child(2n+1){background-color: yellow;}
+    .ul li:nth-child(-n+3){background-color: pink;}/*셋째까지.*/
+    .ul li:nth-child(n+4){background-color: yellowgreen;}/*넷째부터*/
+
+    :not(h1){color: #000;}
   </style>
 </head>
 <body>
@@ -111,5 +137,22 @@
     <li class="link2"><a href="#" target="_self">naver</a></li>
   </ul>
   <a href="mailto:master@abc.com">mailto:master@abc.com</a>
+
+  <hr/>
+
+  <h2 class="h2">의사요소선택자(pseudo element selector)</h2>
+  <h3 class="h3">의사요소선택자(pseudo element selector)</h2>
+
+  <hr/>
+
+  <h2>구조선택자</h2>
+  <ul class="ul">
+    <li>리스트 아이템</li>
+    <li>리스트 아이템</li>
+    <li>리스트 아이템</li>
+    <li>리스트 아이템</li>
+    <li>리스트 아이템</li>
+    <li>리스트 아이템</li>
+  </ul>
 </body>
 </html>
