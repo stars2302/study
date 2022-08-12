@@ -19,23 +19,27 @@
     6. 자식선택자 : 친자식. div > h2{}
     7. 인접형제선택자 : +(바로 밑 동생하나) ~(밑 동생들). div+h2 / div~h2
     8. 그룹화 : ,를 활용. #title,.color{}
+    9. 속성선택자(attribute selector) : html의 속성을 활용하여 선택.[]를 활용. [target="_blank"]{} a[target]{}
+    ++ 9활용 : class가 link로 시작하는~ [class^="link"]{}
+    10. 가상선택자(pseudo selector) : a태그 관련.(hover는 모든 태그, focus는 input도 사용.)
+      :link, :hover(마우스올리면), :active(클릭하면), :visited(링크 방문 후),  :focus(tab키 눌러 focus되면)
+    ++hover : horizontal over
     */
-    *{margin:0;}
-    div *{color:blue;}
-    div nav ~ h2{
-      color: yellowgreen;
-    }
-    div > h2{color: tomato;}
+    
     h1{
       background-color: silver;
       color: red;
       font-weight: bold;
       font-size: 30px;
     }
-    #title{
-      text-decoration: underline;
+    p{
+      font-size: 18px;
+      background-color: pink;
+      color: #fff;
     }
-    #title,nav~h2{background-color: lightsalmon;}
+
+    *{margin:0;}
+    div *{color:blue;}
 
     .color{
       color:ddd;
@@ -47,11 +51,33 @@
       font-weight: bold;
     }
 
-    p{
-      font-size: 18px;
-      background-color: pink;
-      color: #fff;
+    #title{
+      text-decoration: underline;
     }
+
+    div > h2{color: tomato;}
+
+    #title + h2{
+      color: pink;
+    }
+    div nav ~ h2{
+      color: yellowgreen;
+    }
+
+    #title,nav~h2{background-color: lightsalmon;}
+
+    a[target] {text-decoration: none;}
+    [target="_blank"]{background-color: blue; color: white;}
+    [target="_self"]{background-color: red; color: white;}
+    [class^="link"]{list-style: none;}
+
+    a:link{
+      text-decoration: none; color: #000; outline: none;
+    }
+    a:hover{color: red; text-decoration: underline;}
+    a:active{background-color: red; color: #fff;}
+    a:visited{color: silver;}
+    a:focus{background-color: #ddd;}
   </style>
 </head>
 <body>
@@ -76,5 +102,14 @@
   <p>
     <span>Lorem ipsum</span> dolor sit amet consectetur adipisicing elit. Quas culpa odit voluptas. Ut tenetur necessitatibus ipsam impedit, illum in ea ullam fugiat sapiente mollitia. Iste atque id iusto natus fuga?
   </p>
+
+  <hr/>
+
+  <ul>
+    <li class="google"><a href="#" target="_blank">google</a></li>
+    <li class="link1"><a href="#" target="_blank">daum</a></li>
+    <li class="link2"><a href="#" target="_self">naver</a></li>
+  </ul>
+  <a href="mailto:master@abc.com">mailto:master@abc.com</a>
 </body>
 </html>
