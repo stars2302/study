@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* text-transform */
+    h1.uppercase{text-transform: uppercase;} /* 모두 대문자 */
+    h1.lowercase{text-transform: lowercase;} /* 모두 소문자 */
+    h1.capitalize{text-transform: capitalize;} /* 단어의 앞글자만 대문자 */
+    h1.smallcaps{text-transform: small-caps;} /* 모두 대문자인데, 단어의 앞글자만 크게 */
+
+    /* vertical align -> 인라인 요소가 붙어있을 때 뒤의 요소의 높이를 맞출 때 사용. 이미지사용할 때.
+      1. :baseline; -> 글자의 baseline 위치에 맞춤.
+      2. :sub; -> 부모의 아래 첨자 위치에 맞춤.
+      3. :super; -> 부모의 위 첨자 위치에 맞춤.
+      4. :top; -> 부모의 상단에 맞춤.
+      5. :middle -> 부모 소문자를 기준으로 중간에 맞춤.
+      6. :bottom -> 부모의 하단에 맞춤.
+      7. :text-top -> 부모 글꼴 요소의 상단 위치에 맞춤.
+      8. :text-bottom -> 부모 글꼴 요소의 하단 위치에 맞춤.
+      9. : 00px -> baseline을 기준으로 위치 조정.
+    */
+
+    h1{border:1px solid;}
+    img{vertical-align: top;} /*이미지는 기본적으로 아래에 공백이 생김. 그 공백을 없애주는 코드*/
+  </style>
+</head>
+<body>
+  <div class="area">
+    <h1 class="uppercase">Lorem Ipsum Dolor.</h1>
+    <h1 class="lowercase">Lorem Ipsum Dolor.</h1>
+    <h1 class="capitalize">lorem ipsum dolor.</h1>
+    <h1 class="smallcaps">Lorem Ipsum Dolor.</h1>
+  </div>
+
+  <h1><img src="" alt=""></h1>
+</body>
+</html>

@@ -10,38 +10,45 @@
       font-family: '돋움',dotum,helvetica,sans-serif; font-size: 12px;
     }
     h1{
+      /*font-size*/
       font-size: medium;/* large, x-large, xx-large ... -> 비추! */
       font-size:larger; /* larger 부모폰트보다 조금 더 크게 -> 비추!!*/
       font-size: 2em; /* 12px * 2 = 24px*/
       font-size:150%; /* 12px * 0.5 = 18px*/
 
+      /*font-weight*/
       font-weight: lighter; /* 기본은 normal, lighter,bold -> 폰트자체가 지원을 안하는 경우가 있음.*/
       font-weight: 400; /* 100 - 900 */
 
+      /*text-decoration*/
       text-decoration: underline;/*밑줄*/
       text-decoration: line-through;/*라인이 뚫고 나가다. -> 중간줄(?), html태그 del과 비슷.(css추천)*/
       text-decoration: overline;/*윗줄*/
     }
 
     em,address{
+      /*font-style*/
       font-style: normal; /* em,address의 기본값 font-style:italic; 을 nomal로 변경. */
     }
     del{font-style: oblique;} /* = italic / italic기울임, oblique비스듬하게 (결과는 똑같음 걍 똑같음)*/
 
+    /*text-align*/
     .left{text-align: left;} /*기본값, 왼쪽정렬*/
     .center{text-align: center;}/*가운데 정렬*/
     .right{text-align: right;}/*오른쪽 정렬*/
     .etc{text-align: right;}
+    .left{text-align:justify; word-break:all;}/*양옆정렬, 균등분할, 단어자르기 허용*/
 
     /*글의 간격 : letter-spacing, word-spacing, line-height*/
     h1{letter-spacing: 16px;} /* 글자 사이의 간격(px,em ...), photoshop 자간 1000 = 1em */
     .left{word-spacing: 2em;} /* 단어 사이의 간격(px,em ...) */
     .center{line-height: 27px;} /* 줄 높이 */
 
+    /* 글자 가로 정렬 : text-align:center, 세로 정렬 : line-hgieht:세로값;(한줄일 경우,두줄이상X)*/
     h2{
       width: 300px; height: 60px; border: 2px solid red;
       text-align: center; line-height: 60px;
-    } /* 글자 가로 정렬 : text-align:center, 세로 정렬 : line-hgieht:세로값;(한줄일 경우,두줄이상X)*/
+    } 
   </style>
 </head>
 <body>
