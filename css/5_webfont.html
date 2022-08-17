@@ -5,16 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>font, text</title>
+
+  <!--title 바로 밑에 위치하도록. style전에-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Gaegu:wght@300;400&display=swap" rel="stylesheet">
-  <!--head 바로 밑에 위치하도록. style전에-->
+  
   <style type="text/css">
-    @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Gaegu:wght@300;400&display=swap');
-    /*css파일에 font를 넣게될 시 파일의 용량에 따라 로딩시간이 길어질 수 있음.*/
     /* fonts.google.com -> 구글 웹폰트*/
+
+    @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Gaegu:wght@300;400&display=swap');
+    /*css파일에 font를 넣게될 시 파일의 용량에 따라 로딩시간이 길어질 수 있음. -> 늦게 적용될 수 있음.*/
+    
     .en{font-family: 'Aboreto', cursive; font-size: 1.2em;}
     .ko{font-family: 'Gaegu', cursive; font-size: 1.6em;}
+
+    /* snas-serif(고딕), serif(명조), cursive(필기체), monospace(글자간격동일) */
   </style>
 </head>
 <body>
