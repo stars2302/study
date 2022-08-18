@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>White Space</title>
+  <style>
+    .area{
+      width: 1500px; background-color: silver; margin-bottom: 50px;
+    }
+    /*white-space*/
+    .nowrap{
+      height: 40px;
+      white-space: nowrap; /* 줄넘김 없이 한줄로 -> 가장 많이 사용됨. */
+    }
+    .pre{
+      white-space: pre; /* 띄어쓰기, 엔터키 등 공백을 그대로 반영, 넘치는 부분은 nowrap됨. */
+    }
+    .pre-wrap{
+      white-space: pre-wrap; /* 띄어쓰기, 엔터키 등 공백을 그대로 반영, 넘치는 부분은 nowrap됨.(자동 줄넘김) */
+    }
+    .pre-line{
+      white-space: pre-line; /* 엔터키 공백 그대로 반영(tap,띄어쓰기 공백제외), 넘치는 부분은 nowrap됨.(자동 줄넘김) */
+    }
+  </style>
+</head>
+<body>
+  <p class="area nowrap">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fuga consectetur repudiandae quo assumenda praesentium vitae sunt mollitia quis molestias, aliquam porro nesciunt provident obcaecati quas libero quibusdam eveniet iste?
+  </p>
+  <p class="area pre">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fuga consectetur      repudiandae quo assumenda praesentium vitae sunt mollitia quis molestias, aliquam porro nesciunt
+    
+    provident obcaecati quas libero quibusdam eveniet iste?
+  </p>
+  <p class="area pre-wrap">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fuga consectetur      repudiandae quo assumenda praesentium vitae sunt mollitia quis molestias, aliquam porro nesciunt
+    
+    provident obcaecati quas libero quibusdam eveniet iste?
+  </p>
+  <p class="area pre-line">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fuga consectetur      repudiandae quo assumenda praesentium vitae sunt mollitia quis molestias, aliquam porro nesciunt
+    
+    provident obcaecati quas libero quibusdam eveniet iste?
+  </p>
+</body>
+</html>
