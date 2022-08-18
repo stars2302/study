@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block, Inline</title>
+  <style type="text/css">
+    h1{
+      background-color: pink;
+      width: 300px;
+      display: inline;
+    }
+    span{
+      background-color: yellow;
+      width: 300px; /* span은 inline요소라 크기조절X */
+      display: block;/* 그래서 block요소처럼 바꿈 */
+    }
+    /* display
+      1. block : 크기조절O, 세로배치
+      2. inline : 크기조절X, 가로배치
+      3. inline-block : 크기조절O, 가로배치
+      4. none : 없애주는.
+      5. list-item : ul,li처럼..? -> 자주 쓰이지 않는 편.
+      6-1. table : !부모 요소!에 작성, 자식요소에 영향을 줌.
+      6-2. table-cell : !자식 요소!에 작성. -> 표처럼 변함. -> 얘도 html에서 작성하자.
+      7. flex
+      8. grid
+    */
+    p{
+      text-align: center;
+    }
+    p a{
+      background-color: aqua; text-decoration: none; color: inherit;
+      width: 40px; height: 40px; line-height: 40px;
+      display: inline-block;
+    }
+    
+    /*display:none, visibility:hidden 차이점 : 공간을 남긴 채 사라지느냐 차이.*/
+    .hidden{display: none;}
+    .hide{visibility: hidden;}
+
+    div i{display: list-item;}
+
+    .services{display: table;}
+    .services div{display: table-cell;}
+
+    .overflow{
+      text-align: left; background-color: silver; border: 1px solid;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>heading 1</h1>
+  <span>span tag</span>
+
+  <div class="hidden">hidden area</div>
+  <h2 class="hide">heading 2</h2>
+
+  <p>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+  </p>
+  <div>
+    <i>list</i>
+    <i>list</i>
+    <i>list</i>
+    <i>list</i>
+  </div>
+  <div class="services">
+    <div>mobile</div>
+    <div>web application</div>
+  </div>
+  <p class="overflow">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe debitis itaque numquam doloribus soluta impedit modi sint molestias non similique? Omnis minus excepturi architecto tenetur doloremque sapiente numquam dicta distinctio!
+  </p>
+</body>
+</html>
