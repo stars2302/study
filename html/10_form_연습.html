@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form 태그 연습!</title>
+</head>
+<body>
+  <!-- title -->
+  <h1>회원가입</h1>
+  <!-- title -->
+  
+  <!-- form -->
+  <form action="php" method="post">
+
+    <!-- 필수 입력 사항 -->
+    <fieldset>
+      <legend>필수 입력 사항</legend>
+  
+      <!-- 이름 -->
+      <p>
+        <label for="name">이름 : </label>
+        <input type="text" id="name" name="dt_name" placeholder="나서영" required />
+      </p>
+      <!-- 이름 -->
+ 
+      <!-- 이메일 -->
+      <p>
+        <label for="email">이메일 : </label>
+        <input type="email" id="email" name="dt_email" required />
+      </p>
+      <!-- 이메일 -->
+
+      <!-- 비밀번호 -->
+      <p>
+        <label for="password">비밀번호 : </label>
+        <input type="password" id="password" name="dt_password" required />
+      </p>
+      <!-- 비밀번호 -->
+    </fieldset>
+    <!-- 필수 입력 사항 -->
+
+    <!-- 부가 입력 사항 -->
+    <fieldset>
+      <legend>부가 입력 사항</legend>
+
+      <!-- 거주지 -->
+      <p>
+        <label for="address">거주지를 선택해주세요.</label>
+        <select name="dt_address" id="address">
+          <option value="서울시">서울시</option>
+          <option value="경기도">경기도</option>
+          <option value="충청남도">충청남도</option>
+        </select>
+      </p>
+      <!-- 거주지 -->
+
+      <!-- 성별 -->
+      <h2>성별을 선택해주세요.</h2>
+      <label for="men">남성</label>
+      <input type="radio" name="sex" id="men" />
+      <label for="women">여성</label>
+      <input type="radio" name="sex" id="women" />
+      <!-- 성별 -->
+
+      <!-- 관심 동물 -->
+      <h2>좋아하는 동물을 체크해주세요.</h2>
+      <label for="cat">고양이</label>
+      <input type="checkbox" id="cat" name="animals" />
+      <label for="dog">개</label>
+      <input type="checkbox" id="dog" name="animals" />
+      <label for="rabit">토끼</label>
+      <input type="checkbox" id="rabit" name="animals" />
+      <!-- 관심 동물 -->
+
+      
+    </fieldset>
+    <!-- 부가 입력 사항 -->
+
+  </form>
+  <!-- form -->
+</body>
+</html>
