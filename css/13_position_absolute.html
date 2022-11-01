@@ -10,6 +10,10 @@
   2. 자동으로 content크기만큼 조절
   3. 부모 중 기준이 있어야 된다.(없다면 화면이 기준.)
   4. 막내일수록 가장 앞에 위치.
+  5. margin:0 auto; 무시
+
+  3-1. position absolute의 부모(기준)의 자격
+  -> 가까운 부모 중에서 position 기본값(static)이 아닌 요소.(absolute, relative,fixed) - '보통' relative 사용
   */
 *{margin: 0; padding: 0;}
 img{vertical-align: top;}
