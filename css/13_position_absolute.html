@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>position</title>
+<style type="text/css">
+  /*
+  position:absolute (절대값)
+  1. 적용된 요소는 아무도 알아보지 못한다. (붕뜬다)
+  2. 자동으로 content크기만큼 조절
+  3. 부모 중 기준이 있어야 된다.(없다면 화면이 기준.)
+  4. 막내일수록 가장 앞에 위치.
+  */
+*{margin: 0; padding: 0;}
+img{vertical-align: top;}
+
+.img{width: 100px; height: 120px; background-color: #ddd;}
+
+.box{
+  border:1px solid;
+  position:absolute;
+}
+.a{
+  left:50px; top:50px;
+}
+.b{
+  left:100px; top:100px; background: red;
+}
+</style>
+</head>
+<body>
+
+<div class="box a"><img class="img" src="http://placehold.it/100x120" alt=""></div>
+<div class="box b"><img class="img" src="http://placehold.it/100x120" alt=""></div>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</body>
+</html>
