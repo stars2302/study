@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>boxmodel</title>
+<style type="text/css">
+/*
+++word-break:break-all; -> 영단어를 부시는...? 보통 이미지가 오른쪽으로 가면 단어길이때문에 공백이 생김. 그걸 없앨때,(근데 이제 가독성 와장창)
+++ img{vertical-align:top;} -> 초기화 코드, 이미지밑에 원치않는 공백이 생기기 때문에 해줘야 됨.
+
+float의 특징
+1. float이 적용된 요소가 해당 방향으로 이동. 
+- float:right; 를 적용하면 웹사이트의 오른쪽으로 이동.
+2. inline-block처럼 width가 content 크기만큼(또는 자식만큼) 잡힌다.
+2-1. 자식들이 모두 float되면 높이가 0이 됨.
+3. float을 적용시키면 뒤(동생)의 요소들이 감싼다.
+3-1. 감싸는 것을 취소하고 싶다면 감싸려는 요소에게 clear:both; 적용
+3-2. 동생이 감싸는것을 중간부터 취소하고 싶다!(예를들어 p태그일 경우) -> 끊고싶은 부분에 tag(br)를 넣고 clear:both; 적용
+
+*/
+*{
+	margin: 0;
+	padding: 0;
+}
+img{vertical-align:top;}
+
+.thumb{
+  background-color: #ddd;
+  float:right;
+}
+.img{width:100px; height: 100px; background-color: #ddd;}
+
+.content p{word-break: break-all;}
+
+.break{
+  clear:both;/* 3-2 */
+}
+
+.portfolio:after{content: ''; clear:both; display: block;}
+.portfolio{background: green;}
+.portfolio p{
+  border: 2px solid;
+  float:left;
+}
+.clear{clear:both;}
+
+h2{
+  background:silver;
+  margin-bottom: 50px;
+}
+
+</style>
+</head>
+<body>
+	<h1>float</h1>
+	<h2>float 특징</h2>
+  <div class="content">
+    <img class="thumb img" src="#" alt="" />
+    <p>
+      paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph <br class="break"/> paragraph paragraph paragraph paragraph paragraph paragraph paragraph 
+      paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph paragraph 
+    </p>
+  </div>
+  <hr/>
+	<div class="portfolio">
+    <p>
+      <img class="img" src="#" alt="" />
+    </p>
+    <p>
+      <img class="img" src="#" alt="" />
+    </p>
+    <p>
+      <img class="img" src="#" alt="" />
+    </p>
+    <!-- <div class="clear"></div> content가 없는 tag는 사용하지 말 것! 웹표준X-->
+  </div>
+
+</body>
+</html>
