@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>css3, transition</title>
+<style type="text/css">
+/*
+transition : active, hover 등의 '과정'을 보여주는 효과(?)
+- transition-property:속성; -> 지정 속성이 변하는 과정을 보여줌.
+- transition-duration: 0s; -> 변하는 과정의 시간
+- transition-delay: 0s; -> 변하기 전 정체시간
+- transition-timing-function:ease/ease-in/ease-in-out/cubic-bezier;
+++cubic bezier사이트 접속 후 커스텀 -> 복사 -> transition-timing-function위치에 붙여넣기
+
+- transition: property duration delay timing-function; 
+**특히 duration, delay 순서는 꼭 지킬것
+
+
+*/
+body{
+	font-family: tahoma,sans-serif;
+	font-size: 12px;
+}
+.img{width: 100px; height: 100px; background-color: greenyellow; opacity:0;}
+.photo img{
+	width: 100px;
+
+  transition-property: width margin-left;
+  transition-duration: 2s;
+  transition-delay:1s;
+  transition-timing-function: ease;
+  /* transition:
+    width 2s 1s ease-in-out,
+    margin-left 2s 1s ease-in; */
+  transition:all .5s cubic-bezier(.69,.24,.35,1.54);
+
+
+}
+.photo:hover img{
+	width: 400px; height: 400px; margin-left:100px; opacity:1;
+}
+</style>
+</head>
+<body>
+
+<div class="photo">
+	<img class="img" src="http://placehold.it/200x200" alt="">
+</div>
+
+</body>
+</html>
