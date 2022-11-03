@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans";
+  line-height: 1.618em;
+  background: #2c3e50;
+}
+.wrapper {
+  max-width: 65rem;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 5rem;
+  text-align: center;
+  background: #fff;
+  border: 0.5rem solid #34495e;
+}
+hr {
+  border: 0;
+  border-bottom: 0.0625rem solid #bbb;
+  margin: 3rem 0;
+}
+button {
+  font-size: 2em;
+  background: #3498db;
+  color: #fff;
+  border: 0.25rem solid #3498db;
+  padding: 0.85em 0.75em;
+  margin: 1rem;
+  position: relative;
+  z-index: 1; /* 1. background와 content를 분리. -> content만 공중에 띄우는 거임. */
+  overflow: hidden;
+}
+
+button:hover{
+  color:#3498db;
+}
+button:before{ /* 2. content위에 회색배경을 맹글어 */
+  content: '';
+  background: #ecf0f1;
+  position: absolute;
+  transition: 0.4s;
+  z-index: -1;/* 3. z-index:-1; 을 주면서 회색배경을 background와 content사이에 끼워 넣음. */
+}
+
+/* slide */
+button[class^="slide"]:hover:before{
+  top:0; bottom:0; left:0; right:0;
+}
+
+.slide_from_left:before{
+  left:-100%; right: 100%; bottom: 0; top:0;
+}
+.slide_from_right:before{
+  left:100%; right: -100%; bottom: 0; top:0;
+}
+.slide_from_top:before{
+  left:0; right: 0; bottom: 100%; top:-100%;
+}
+.slide_from_bottom:before{
+  left:0; right: 0; bottom: -100%; top:100%;
+}
+
+/* grow box */
+.grow_box:before{
+  left: 0; top:0; bottom:0; right:0;
+  transform: scale(0);
+}
+.grow_box:hover:before{
+  transform: scale(1);
+}
+
+/* grow_ellipse */
+.grow_ellipse:before{
+  left:-50%; top:-50%; bottom:-50%; right:-50%;
+  border-radius: 50%; transform: scale(0);
+}
+.grow_ellipse:hover:before{
+  transform: scale(1);
+}
+
+/* grow_skew_forward */
+.grow_skew_forward:before{
+  left:-30%; top:0; bottom:0; right:-30%;
+  transform:skew(-45deg) scaleX(0);
+}
+.grow_skew_forward:hover:before{
+  transform:skew(-45deg) scaleX(1);
+}
+
+/* grow_skew_backward */
+.grow_skew_backward:before{
+  left:-30%; top:0; bottom:0; right:-30%;
+  transform:skew(45deg) scaleX(0);
+}
+.grow_skew_backward:hover:before{
+  transform:skew(45deg) scaleX(1);
+}
+
+/* grow_spin */
+.grow_spin:before{
+  left:0; top:0; bottom:0; right:0;
+  transform:scale(0) rotate(0);
+}
+.grow_spin:hover:before{
+  transform:scale(1) rotate(180deg);
+}
