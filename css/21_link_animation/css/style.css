@@ -1,3 +1,10 @@
+/*
+<태그 data-어쩌구=""/>
+사용자가 임의로 만들어낸 html 속성.
+
+아무래도 rock's님은 천재인가봄..
+*/
+
 body {
   font-family: "Open Sans";
   font-size: 1.125rem;
@@ -11,4 +18,111 @@ body {
 }
 a {
   color: #3498db;
+}
+
+/* bg fade-in/out */
+a.fade_in_bg{
+  text-decoration: none;
+  border-bottom: 0.0625em dotted #3498db;
+  transition: 0.35s;
+  padding: 0 0.25em 0.05em;
+}
+a.fade_in_bg:hover{
+  background: #3498db;
+  color:#fff;
+}
+
+/* bg slide */
+a[class^="slide"]{
+  text-decoration: none;
+  line-height: 1.5em;
+  padding:0 0.25em;
+  border-bottom: 0.0625em dotted #3498db;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+a[class^="slide"]::before{
+  content: attr(data-linktext);
+  background-color: #3498db;
+  color:#fff;
+  position:absolute;
+  transition: 0.3s;
+}
+
+a[class^="slide"]:hover::before{
+  top:0; left:0; bottom:0; right:0;
+}
+
+/* bg slide-left */
+a.slide_from_left::before{/* left만 주면 너비가 제대로 안잡힘.! */
+  left:-100%;
+  right: 100%;
+  top:0;
+  bottom:0;
+}
+
+/* bg slide-right */
+a.slide_from_right::before{
+  left:100%; 
+  right:-100%;
+  top:0;
+  bottom:0;
+}
+
+/* bg slide-down */
+a.slide_from_top::before{
+  bottom:100%; 
+  top:-100%;
+  left:0;
+  right:0;
+}
+
+/* bg slide-up */
+a.slide_from_bottom::before{
+  top:100%; 
+  bottom:-100%;
+  left:0;
+  right:0;
+}
+
+
+/* 밑줄 fade-in/out */
+a.fade_in_underline{
+  text-decoration: none;
+  padding: 0.125em 0.05em;
+  border-bottom: 0.125em solid transparent;/* tramsparent - 투명(부모의 색) */
+  transition:0.35s;
+}
+a.fade_in_underline:hover{
+  border-color: #3498db;
+}
+
+/* 밑줄 slide */
+a[class^="underline"]{
+  text-decoration: none;
+  padding: 0.125em 0.05em;
+  position: relative;
+}
+
+a[class^="underline"]::before{
+  content: '';
+  position: absolute;
+  transition:0.35s;
+  border-bottom: 0.125em solid #3498db;
+  top:100%;
+}
+a[class^="underline"]:hover::before{
+  left:0; right:0;
+}
+a.underline_from_left::before{
+  left:0; right:100%;
+}
+a.underline_from_right::before{
+  left:100%; right:0;
+}
+a.underline_from_center::before{
+  left:50%; right:50%;
 }
