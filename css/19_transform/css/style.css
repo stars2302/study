@@ -1,0 +1,76 @@
+/*
+<<<<<<<transform<<<<<<< -> 가상으로 형태를 변환, 다른 요소에 지장X
+1. transform:translateX/Y/Z(--px); -> 움직임
+=> transform:translate(X px, Y px);
+=> transform:translate3d(X px, Y px, Z px);
+
+2. transform:rotateX/Y/Z(--deg); -> 각도
+=> transform:rotate(X deg, Y deg);
+
+3. transform:skewX/Y(--deg); -> 각도
+=> transform:skew(X deg, Y deg);
+
+4. transform:sclaeX/Y/Z(--); -> 크기배수
+=> transform:sclae(X, Y);
+
+++ transform-origin:가로 세로; -> transform의 기준점.!
+
+
+<<<<<<<<<transform:------Z(); 사용 시 주의점!>>>>>>>>>
+1. transform:------Z(); 는 단독사용 시 적용 X
+1-1. 부모를 움직여 (제3자 시선)
+부모태그{
+	perspective: 00px; -> (원근감, 0px-1000px 사이가 적정선.)
+  perspective-origin: 가로 세로; -> (원근감이 시작되는 지점)
+}
+
+1-2. 본인을 움직여 (내 시선)
+본인태그{
+	transform: perspective(00px) ------Z(00px);
+}
+**perspective-origin은 큰 의미 없게됨. tansform-origin 사용하여 시점 이동
+
+2. transform:scaleZ(배수); 는 perspective + translateZ도 있어야 됨!
+*/
+
+
+.box1{
+	/*원근감*/
+	perspective:1000px;
+	perspective-origin:50% 50%; /* 왼쪽상단, left top */
+}
+
+.box1 img{
+	-o-transition: all 0.35s;
+	-webkit-transition: all 0.35s;
+	-moz-transition: all 0.35s;
+	-ms-transition: all 0.35s;
+	transition: all 0.35s;
+	transform-origin:50% 50%;
+	transform:scaleZ(1) translateZ(100px);
+	
+}
+
+.box1:hover img{
+	/* -o-transform: translateX(100px);
+	-webkit-transform: translateX(100px);
+	-moz-transform: translateX(100px);
+	-ms-transform: translateX(100px);	
+	transform: translateX(100px);
+
+	transform: translateZ(100px); */
+	transform:scaleZ(2) translateZ(100px);
+}
+
+
+/* rotate */
+
+.box2 img{
+	transition:.35s;
+	transform-origin: 50% 0;
+	transform:perspective(1000px) rotateX(0);
+}
+
+.box2:hover img{
+	transform:perspective(1000px) rotateX(90deg);
+}
