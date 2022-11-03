@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>css3, multiple columns</title>
+<style type="text/css">
+  /*
+  gradient
+  background:linear-gradient(방향, 색상 위치, 색상 위치);
+  background:radial-gradient(방향, 색상 위치, 색상 위치); -> ellipse at center(안쪽에서 바깥으로 원형)
+
+  **colorzilar gradient -> 크로스 브라우징 도와주는 사이트
+  */
+  .linear{
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+    background:linear-gradient(#000,#fff,#000);/*딱 기본, to bottom, 색상, 색상*/
+    background: linear-gradient(to bottom, #000 0%,#fff 100%);
+    background: linear-gradient(to right, pink 20%, #fff 20%, #fff 80%, pink 80%);
+    /* background: linear-gradient(-45deg, #2989cc 0%, #fff 50%, #906a00 52%, #D99F00 64%, #fff 100%); */
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,ffffff+50,000000+100 */
+    background: #000000; /* Old browsers */
+    background: -moz-linear-gradient(45deg,  #000000 0%, #ffffff 50%, #000000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg,  #000000 0%,#ffffff 50%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg,  #000000 0%,#ffffff 50%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+  }
+
+  .radial{
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+    background: radial-gradient(ellipse at center, #000 0%, #fff 100%);
+  }
+</style>
+</head>
+<body>
+	<h1>Gradient</h1>
+	<h2>Linear gradient</h2>
+	<div class="linear">
+		Linear
+	</div>
+	
+	<h2>Radial gradient</h2>
+	<div class="radial">
+		Radial
+	</div>	
+</body>
+</html>
