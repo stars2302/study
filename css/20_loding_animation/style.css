@@ -17,3 +17,144 @@ h1.loading {
   font-size: 3em;
   font-weight: 400;
 }
+
+.dot-one{
+  /* 애니메이션 이름 dot_one(name), 총시간 2s(duration), 무한반복(iteration-count) */
+  animation:dot_one 2s infinite;
+  opacity:0;
+}
+
+.dot-two{
+  /* 애니메이션 이름 dot_one(name), 총시간 2s(duration), 무한반복(iteration-count) -> delay활용하게 되면 마지막에 동시에 사라지지 않음 */
+  animation:dot_two 2s infinite;
+}
+.dot-three{
+  /* 애니메이션 이름 dot_one(name), 총시간 2s(duration), 무한반복(iteration-count) */
+  animation:dot_three 2s infinite;
+}
+
+/* 애니메이션 dot_one의 할 일 */
+/* 투명도 0 -> 1 */
+@keyframes dot_one{
+  0%{opacity: 0;}
+  15%{opacity: 0;}
+  25%{opacity: 1;}
+  100%{opacity: 1;}
+}
+@keyframes dot_two{
+  0%{opacity: 0;}
+  40%{opacity: 0;}
+  50%{opacity: 1;}
+  100%{opacity: 1;}
+}
+@keyframes dot_three{
+  0%{opacity: 0;}
+  65%{opacity: 0;}
+  75%{opacity: 1;}
+  100%{opacity: 1;}
+}
+
+.bouncing_ball{
+  position:relative;
+  width: 4rem;
+  height: 12rem;
+  margin: 0 auto;
+  /* border: 1px solid #fff; */
+}
+
+.ball{
+  width: 4rem;
+  height: 4rem;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom:0;
+  animation:bounce 1s infinite ease;
+}
+
+/* 이름 : bounce, 시간 : 1초, 방향 : 바닥~위, 무한반복 */
+@keyframes bounce{
+  0%{top:0;animation-timing-function: ease-in;}
+  39%{transform: scale(1,1);}
+  40%{top:8rem; animation-timing-function: ease-out; transform: scale(1.3,.7);}
+  50%{transform: scale(1,1);}
+  100%{top:0;}
+}
+
+.spinner{
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  margin: 6rem auto;
+  transform: rotate(-45deg);
+  animation:spin 4s infinite;
+}
+
+div[class^="curve"]{
+  position: absolute;
+}
+
+.curve_top_left{
+  width: 3rem;
+  height: 3rem;
+  top:0;
+  left:0;
+  border-top:0.5rem solid #fff;
+  border-left:0.5rem solid #fff;
+  border-top-left-radius: 100%; /* border-상하-좌우-radius:--; */
+}
+
+.curve_top_right{
+  width: 2rem;
+  height: 2rem;
+  bottom:50%;
+  left:50%;
+  border-top: 0.5rem solid #fff;
+  border-right: 0.5rem solid #fff;
+  border-top-right-radius: 100%;
+}
+
+.curve_bottom_left{
+  width: 2rem;
+  height: 2rem;
+  top:50%;
+  right: 50%;
+  border-bottom: 0.5rem solid #fff;
+  border-left: 0.5rem solid #fff;
+  border-bottom-left-radius: 100%;
+}
+
+.curve_bottom_right{
+  width: 3rem;
+  height: 3rem;
+  right: 0;
+  bottom: 0;
+  border-bottom: 0.5rem solid #fff;
+  border-right: 0.5rem solid #fff;
+  border-bottom-right-radius: 100%;
+}
+
+.circle_center{
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #fff;
+  left:50%; top:50%;
+  border-radius: 100%;
+  transform: translate(-50%,-50%);
+  animation:pulse 2s infinite;
+}
+
+/* spin 360deg회전 */
+@keyframes spin{
+  0%{transform: rotate(-45deg); opacity: 1;}
+  25%{opacity:0.75;}
+  50%{transform:rotate(675deg); opacity: 1;}
+  75%{opacity:0.75;}
+  100%{transform: rotate(-45deg); opacity: 1;}
+}
+@keyframes pulse{
+  0%{opacity:0.5;}
+  50%{opacity:1;}
+  100%{opacity:0.5;}
+}
