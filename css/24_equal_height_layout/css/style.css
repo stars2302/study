@@ -44,13 +44,81 @@ body {
 }
 
 
+/*flex 방법*/
+.flexbg{
+  display:flex;
+  width: 100%;
+}
+.flexbg main{
+  width: 60%;
+  order:2;
+  padding: 1.618rem;
+  background: #fff;
+}
+.flexbg .sidebar{
+  width: 20%;
+  padding: 1.618rem;
+  color:#fff;
+}
+.flexbg .left{
+  order:1;
+  background: #3498db;
+}
+.flexbg .right{
+  order:3;
+  background: #34495e;
+}
+
 /* 반응형은 기존 css 가장 밑에 위치해 있어야 됨. (기존 css가 밑에 위치할 경우 반응형은 적용 안됨. 우선순위 낮아지니까 */
+/* min-width를 작성하지 않으면 중첩해서 작성하지 않아도 됨. */
 
 @media screen and (max-width:768px) {
   /* 768px 이하 */
-  
+  .gradientbg{
+    background:linear-gradient(to right, #3498db 0%, #3498db 50%,#34495e 50%, #34495e 100%)
+  }
+  .gradientbg .sidebar{
+    width: 50%;
+  }
+  .gradientbg main{
+    width: 100%;
+    background: #fff;
+    float:none;
+    margin-left:0;
+  }
+  .gradientbg .left{
+    float:left;
+    margin-left:0;
+  }
+
+  /* flex */
+  .flexbg{
+    flex-wrap: wrap;
+  }
+  .flexbg main{
+    order:1;
+    width: 100%;
+  }
+  .flexbg .sidebar{
+    width: 50%;
+  }
 }
 
-@media screen and (max-width:480px){
+@media screen and (max-width:500px){
   /* 480px 이하 */
+  .gradientbg .sidebar{
+    width: 100%;
+    float:none;
+  }
+  .gradientbg .left{
+    background: #3498db;
+  }
+  .gradientbg .right{
+    background: #34495e;
+  }
+
+  /* flex */
+  .flexbg .sidebar{
+    width: 100%;
+  }
 }
