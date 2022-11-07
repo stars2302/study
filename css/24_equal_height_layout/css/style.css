@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans";
+  background: #ecf0f1;
+}
+.wrapper {
+  max-width: 60rem;
+  width: 100%;
+  margin: 2rem auto;
+}
+.gradientbg::before,
+.gradientbg::after {
+  content: " ";
+  display: table;
+}
+.gradientbg::after {
+  clear: both;
+}
+.gradientbg .sidebar {
+  width: 20%;
+  padding: 1.618rem;
+  color: #fff;
+}
+.gradientbg main {
+  width: 60%;
+  padding: 1.618rem;
+  float: left;
+  margin-left: 20%;
+  /* background: #fff; */
+}
+.gradientbg .left {
+  float: left;
+  margin-left: -80%;
+  /* background: #3498db; */
+}
+.gradientbg .right {
+  float: right;
+  /* background: #34495e; */
+}
+.gradientbg{
+  background:linear-gradient(to right, #3498db 0%, #3498db 20%, #fff 20%,#fff 80%, #34495e 80%, #34495e 100%);
+}
+
+
+/* 반응형은 기존 css 가장 밑에 위치해 있어야 됨. (기존 css가 밑에 위치할 경우 반응형은 적용 안됨. 우선순위 낮아지니까 */
+
+@media screen and (max-width:768px) {
+  /* 768px 이하 */
+  
+}
+
+@media screen and (max-width:480px){
+  /* 480px 이하 */
+}
