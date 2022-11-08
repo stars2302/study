@@ -13,7 +13,22 @@
 	#content{float: left; width: 600px; background-color: lime;}
 	#aside{float: right; width: 340px; background-color: green;}
 	#footer{margin-top: 30px; background-color: silver; line-height: 30px;}
+	
+	@media screen and (max-width:960px) {
+		#wrap{
+			width: 100%;
+		}
+		#content{width: 63%;}
+		#aside{width:35%;}
+	}
 
+	@media screen and (max-width:500px) {
+		#wrap{
+			width: 100%;
+		}
+		#content{width: 100%; float:none;}
+		#aside{width:100%; float:none;}
+	}
 
 </style>
 </head>
