@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"> 
+<title>min-device-pixel-ratio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	*{margin: 0; padding: 0;}
+	body,h1,h2,h3,h4{font-family: verdana,sans-serif; font-size: 12px;}
+	li{list-style: none;}
+	
+	.photo{
+		width: 240px;
+		height: 200px;
+		background-image: url(img/photo-240.png);
+		background-size:100% 100%;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		text-indent: -9999em;
+	}
+	
+	/* 여기서 -webkit은 크로스브라우징 관련이 아닌 모바일 렌더링 엔진이름임. */
+	@media screen and (-webkit-min-device-pixel-ratio:2){
+		.photo{
+			background-image: url(img/photo-480.png);
+			/* 
+				모바일은 픽셀이 압축되어 있기때문에 pc에서 화질이 괜찮아도 깨지는 경우가 생김.
+				그래서 반드시 원본이미지와 2배이상의 크기 이미지를 활용하여 화질 깨지지 않게!
+				background-size:가로 세로; 를 이용하여 큰 이미지를 공간에 우겨넣기!
+			*/
+		}
+	}
+</style>
+</head>
+
+<body>
+
+<p class="photo">photo example</p>
+
+</body>
+</html>
