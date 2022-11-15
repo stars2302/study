@@ -6,7 +6,7 @@ css/style.less
 -> 근데 브라우저는 해석하지 못함.
 -> 그래서 lesscss.org 웹페이지의 js파일을 연결해주면 해석가능. (js파일이 변환기 역할을 해줌. 파이어폭스만 가능.?)
 
-less 적용법
+~ less 적용법
 <link rel="stylesheet/less" type="text/css" href="style.less" />
 <script src="cdn주소 또는 다운로드 파일경로"></script> -> head안에 작성
 ** link 뒤에 script 순서 바뀌지 않기.
@@ -15,18 +15,19 @@ less 적용법
 lesscss.org
 
 
-특징
+~ 특징
 1. 변수를 지정해 유지보수가 쉬운 코드를 작성할 수 있음.
 2. 사칙연산을 이용해 리듬감이 일정한 레이아웃을 쉽게 만들수 있음.
+3. html비스무리하게? 부모자식간 엮어서 깔끔한(질서있는..?) 코드 작성할 수 있음!
 
-변수 사용법
+~ 변수 사용법
 @변수명: 적용값;
 tag {
   color: @변수명;
 }
 ** 변수명 지을 때 1. 숫자로시작X 2. 특수기호는 _-만 사용 3. 공백사용X 
 
-Mixins (-> 여러개의 css를 한번에 적용하고 싶을 때)
+~ Mixins (-> 여러개의 css를 한번에 적용하고 싶을 때)
 .변수명 {
   color: #fff;
   font-size: 16px;
@@ -35,6 +36,28 @@ h1 {
   .변수명;
 }
 
+
+~ 부모자식간 위계관계가 잘 보이는!
+#header {color: black;}
+#header h1 {color: red;}
+#header h1 a {background-color: gray;}
+...
+#hader{
+  color: black;
+
+  h1{
+    color: red;
+
+    a{
+      background-color: gray;
+    }
+  }
+}//header
+
+*/
+
+/*
+sass-lang.com
 */
 
 @charset "utf-8";
@@ -46,6 +69,12 @@ h1 {
 
 @mainFontSize: 12px;
 @titleFontSize: (@mainFontSize * 2.0);
+
+@baseUrl : "http://www.abc.com";
+
+body{
+  background-image: url(@{baseUrl}/images/bg.jpg);
+}
 
 /* Mixins */
 .bordered{
@@ -81,3 +110,34 @@ a{
   color: @linkcolor;
 }
 
+/*
+#header {
+  color: black;
+}
+#header nav {
+  font-size: 16px;
+  color: red;
+}
+#header nav a {
+  color: red;
+}
+#header nav a:hover {
+  color:blue;
+}
+*/
+
+#header{
+  color: black;
+  
+  nav{
+    font-size:16px;
+
+    a {
+      color: red;
+
+      &:hover {
+        color: blue;
+      }
+    }
+  }//nav
+}//header
