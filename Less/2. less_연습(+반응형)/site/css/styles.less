@@ -1,0 +1,208 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css?family=Bentham|Libre+Baskerville:400i|PT+Serif');
+
+/* ---------------- TYPOGRAPHY 변수 ---------------- */
+@MainTitleFont : 'Bentham', serif;
+@MainTitleHighFont : 'Libre Baskerville', serif;
+@BodyFont : 'PT Serif', serif;
+
+@BodyFontSize:18px;
+@BodyLineHeight: 34px;
+
+/* ---------------- color 변수 --------------------- */
+@BodyColor: #6f6f6f;
+@highlightColor: #e3514e;
+
+/* ---------------- mix --------------------- */
+.ContainerLayout{
+  width: 640px;
+  margin: 0 auto;
+} 
+.GhostButton{
+  color:#fff; text-decoration:none;
+  padding: 0 15px; line-height:51px;
+  border: 1px solid #fff;
+  display: inline-block;
+}
+@borderStyle: 1px solid #838383;
+
+/* --------------------------------------------- */
+
+body {
+  font: @BodyFontSize/@BodyLineHeight @BodyFont;
+  color: @BodyColor;
+}
+
+h2 {
+  font-family: @MainTitleFont;
+}
+
+h3 {
+  font-family: @MainTitleFont;
+}
+
+header {
+  color: #fff;
+
+  h1 {
+    font-family: @MainTitleFont;
+    font-size:30px; 
+    text-transform:uppercase; 
+    letter-spacing:0.02rem;
+  }
+
+  h2 {
+    font-size:60px;
+
+    span {
+      font-family: @MainTitleHighFont;
+    }
+  }
+
+  h3{
+    font-size:20px; 
+    font-style:italic;
+  }
+}
+
+section{
+  h3 {
+    font-size:14px; 
+    text-transform:uppercase;
+  }
+}
+
+/* ---------------- LAYOUT ---------------- */
+.container {
+  .ContainerLayout;
+}
+header, footer {
+  text-align: center;
+}
+
+/* ---------------- HEADER ---------------- */
+header {
+  height:612px;
+  background: url(../images/header_bg.jpg) no-repeat 50% 0 / cover;
+  /* background-size:cover; */
+  padding-top:75px;
+
+  h1 a {
+    .GhostButton;
+  }
+
+  h2 {
+    max-width:680px;
+    width: 100%; 
+    margin:135px auto 30px;
+    line-height:69px;
+  }
+}
+
+/* ---------------- MAIN CONTENT ---------------- */
+section {
+  padding:89px 0 197px;
+
+  h2 {
+    font-size:42px; color:#444; line-height:53px; text-align:center;
+  }
+
+  h3 {
+    text-align:center;
+  }
+
+  p {
+    margin-bottom:30px;
+
+    em {
+      color: @highlightColor;
+    }
+  }
+}
+
+.share {
+  border: @borderStyle;
+
+  li {
+    width:25%; float:left; border-right:@borderStyle;box-sizing:border-box; text-align:center;color:#838383; line-height:52px;
+
+    &:last-child {
+      border-right:0;
+    }
+
+    a {
+      text-decoration:none; color:#838383;
+      display: block;
+
+      &:hover {
+        background:@highlightColor; color:#fff;display:block;
+      }
+    } //.share li a
+  }//.share li
+}//.share
+
+/* ---------------- FOOTER ---------------- */
+footer {background:#555; color:#fff; text-align:center; line-height:68px; font-size:14px;}
+
+
+@media screen and (max-width: 650px) {
+  /* ---------------- LAYOUT ---------------- */
+  .container {
+    width: 100%;
+    padding:15vw 15px;
+    box-sizing: border-box;
+  }
+
+  /* ---------------- HEADER ---------------- */
+  header h2 {
+    width: 100%;
+    font-size: 10vw;
+    line-height: 10vw;
+  }
+
+  /* ---------------- MAIN CONTENT ---------------- */
+  section {
+    padding: 89px 0 89px;
+
+    h2 {
+      font-size: 9vw;
+      line-height: 8vw;
+    }
+  }
+
+  .share {
+    margin-bottom: 40px;
+
+    li {
+      width: 100%;
+      float: none;
+      border-bottom: @borderStyle;
+      border-right: none;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  /* ---------------- FOOTER ---------------- */
+  footer {
+    line-height: 7vw;
+    padding: 5vw 0;
+    /* 
+    viewport 단위는 모바일에서만 사용하기를 권장 그 이상은 지나치게 커지거나 작아질 수 있기 때문.
+    */
+  }
+}//max-width:650px
+
+
+
+
+
+
+
+
+
+
+
+
