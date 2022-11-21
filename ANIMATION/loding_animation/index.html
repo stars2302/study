@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+  <div class="progress-bar">
+    <div class="bar"></div>
+    <div class="rate" data-rate="70"></div>
+  </div>
+
+  <script src="../../jquery-3.6.0.js"></script>
+  <script>
+    var 
+    progressWarp = $('.progress-bar'),
+    progressBar = progressWarp.find('.bar'),
+    progressText = progressWarp.find('.rate'),
+    progressRate = progressText.attr('data-rate');
+
+    // bar의 너비가 2.5s width 바뀌는 애니메이트
+    progressBar.animate({width:progressRate+"%"},2500);
+
+    /*
+    
+
+    // 1. setInterval 활용
+    //0.1초마다 0~..60까지 올리기
+    setInterval(textAnimation,50);
+
+    function textAnimation (){
+      var currenRate = progressBar.width() / progressWarp.width() * 100;
+      progressText.text(Math.ceil(currenRate) + '%');
+    };
+
+    */
+
+    
+    // 2. animate 활용 (css속성 중 수치가 있는 요소만 animate되는것이 일반적.)
+    // animate 옵션을 활용하여 사용자속성을 만들고, 속성이 바뀌는 것을 작성할 수 있음.
+    $({rate:0}).animate({rate:progressRate},{
+      duration: 2500,
+      progress: function(){
+        var now = this.rate;
+        progressText.text(Math.ceil(now) + '%');
+      }
+    });
+    
+
+    // 3. animate Number 플러그인 활용
+
+
+  </script>
+</body>
+</html>
