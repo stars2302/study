@@ -1,0 +1,12 @@
+.section {
+  height: 100vh;
+  border: 1px solid rgb(223, 223, 223);
+  width: 960px;
+  margin: 0 auto;
+}
+.section1 {
+  border-bottom: none;
+}
+.animate {
+  padding: 20px;
+}

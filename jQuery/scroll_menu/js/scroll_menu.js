@@ -29,6 +29,17 @@ $(function(){
     });
   });
 
+  var buttons = $('button'),
+  topButton = buttons.eq(0),
+  bottomButton = buttons.eq(1);
+
+  $(topButton).click(function(){
+    $('html,body').stop().animate({scrollTop:0},1500);
+  });
+  $(bottomButton).click(function(){
+    $('html,body').stop().animate({scrollTop:1900},1500);
+  });
+
 
 
 
