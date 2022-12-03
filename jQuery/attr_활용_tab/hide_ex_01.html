@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  <p>Hello</p>
+  <a href="#">Click to hide me too</a>
+  <p>Here is another paragraph</p>
+<script>
+    $("p").hide(); //display:none;
+    $("a").click(function ( event ) {
+      event.preventDefault();
+      $(this).fadeOut(); 
+    });
+
+    // hide / show - display:none / block
+    // fadeOut - dispaly:block -> opacity:1 ~ 0 -> display:none 
+</script>
+
+</body>
+</html>
