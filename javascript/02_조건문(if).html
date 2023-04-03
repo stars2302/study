@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문(if)</title>
+</head>
+<body>
+  <script>
+    // 1. 연산자
+    // ==(같다)
+    a == b;
+
+    // =!(다르다)
+    a != b;
+
+    // &&(and)
+    a == b && a == c;
+
+    // ||(or)
+    a == b || a == c;
+
+    // >(초과)
+    a > b; //a가 b보다 크면
+
+    // <(미만)
+    a < b; //a가 b보다 작으면
+
+    // >=(이상)
+    a >= b; //a가 b보다 크거나 같으면
+
+    // <=(이하)
+    a <= b; //a가 b보다 작거나 같으면
+  </script>
+  <h2>조건문</h2>
+
+
+
+  <script>
+    // 2. 조건문
+    var aa = 10;
+    var bb = 20;
+    if(aa < bb){
+      //괄호안에 조건이 참일때 할일
+      document.write('aa가 bb보다 작다');
+    } else{
+      //괄호안에 조건이 거짓일때 할일
+      document.write('aa가 bb보다 크다');
+    }
+  </script>
+
+
+
+  <hr></hr>
+  <h2>조건문 활용</h2>
+  <script>
+    var aaa = 10;
+    var bbb = 20;
+    var ccc = 30;
+    
+    if(aaa > bbb){
+      document.write('aaa가 bbb보다 크다');
+    } else if(bbb > ccc){
+      document.write('bbb가 ccc보다 크다');
+    } else if(bbb < ccc){
+      document.write('bbb가 ccc보다 작다');
+    } else {
+      document.write('어쩌라고');
+    }
+  </script>
+
+
+
+  <hr></hr>
+  <h2>조건문 활용</h2>
+  <script>
+    var i = 10;
+    var o = 20;
+    var p = 30;
+
+    if(i < o && p > o){
+      document.write('i가 o보다 작고 o가 p보다 작다')
+    }
+
+    if(i < o || p > o){
+      document.write('i가 o보다 작거나 o가 p보다 작다')
+    }
+  </script>
+
+
+
+  <hr></hr>
+  <h2>조건문 응용</h2>
+  <script>
+    var d = 10;
+    var e = 20;
+
+    if(d != e){
+      if(d < e){
+        document.write('e가 d보다 크다');
+      } else{
+        document.write('d가 e보다 크다');
+      }
+
+    }
+
+  </script>
+
+
+
+  <hr></hr>
+  <h2>조건문 축약</h2>
+  <script>
+    var d = 10;
+    var e = 20;
+
+    /*
+    //원본
+    if(d < e){
+      document.write('e가 d보다 크다');
+    } else{
+      document.write('d가 e보다 크다');
+    }
+    */
+
+    // 축약1 (중괄호 없애기)
+    if(d < e)
+      document.write('e가 d보다 크다');
+    else
+      document.write('d가 e보다 크다');
+    
+    // 축약2 (조건 ? 참 : 거짓)
+    (d < e) ? document.write('e가 d보다 크다') : document.write('d가 e보다 크다');
+    
+
+  </script>
+  
+</body>
+</html>

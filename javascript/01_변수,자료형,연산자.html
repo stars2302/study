@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>변수, 자료형, 연산자</title>
+		<meta name="description" content="">
+		<meta name="author" content="user1">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<style></style>
+	</head>
+
+
+	<body>
+		<script type="text/javascript">//-> html5 부터는 type를 작성하지 않아도 됨.
+
+			//1. 변수
+			var six = 6; //-> 한 문장이 끝나면 세미콜론(;)을 붙여 끝맺음 한다.
+			var seven = 7;
+			
+			//1-1. 변수에 저장할 수 있는 값은?
+			//숫자
+			var num = 30;
+
+			//문자
+			var str = 'abc'; //-> 문자는 따옴표안에 넣기.
+			
+			//boolean(true/false)
+			var bool = false;
+
+			//undefined(변수 안에 값을 선언하지 않은 경우)
+			var u;
+
+			//null(값을 빈 값인 'null'을 선언한 경우)
+			var n = null;
+
+			//함수
+			function sum(a,b){
+				var c = a + b;
+			}
+			sum(10+20);
+
+			//객체
+			// var obj = New Object();
+
+			//배열
+			// var arr = New Array();
+
+
+
+			//2. 자료형
+			//2-1. 문자열로 자동 자료형 변환 (+)
+			console.log(12 + 34); //-> 46
+			console.log('12' + 34); //-> 1234
+			console.log(12 + '34'); //-> 1234
+			
+			//2-2. 슷자로 자동 자료형 변환 (- / *)
+			console.log('12' / 2); //-> 6
+			console.log(12 * '2'); //-> 24
+			console.log('12' - '2'); //-> 10
+
+
+			//3. 연산자
+			// 사칙연산
+			var sum = 1 + 1; //-> 결과값 2
+
+			// + (문자열 이어주기)
+			var name1 = 'java'
+			var name2 = 'script'
+			name1 + name2 //-> 결과값 javascript
+
+			// % (나머지 값)
+			var m = 5 % 2; //-> 결과값 1
+
+			// ++(1씩 증가), --(1씩 감소)
+
+			// += -= *= /= %= (연산과 동시에 값을 할당)
+			var d = 1;
+			d += 4; //-> 결과값 5
+
+
+
+			//4. 활용
+			document.write(six + seven); //document(body),  결과값 13
+			document.write('<br/>');
+
+			var o = 40;
+			var p = 30;
+			var w = 20;
+			var y = 5;
+			var q = 10;
+			var sum2 = (o + p - w) * y / q;
+			document.write(sum2);
+			document.write('<br/>');
+
+			//document.write(sum3); //-> error: sum3 is not defined
+
+			var str1 = '자바스크립트';
+			var str2 = '기초';
+			var sum4 = str1 + str2;
+			document.write(sum4);
+			document.write('<br/>');
+
+			var time1 = '현재 시간은';
+			var time2 = 1;
+			var time3 = 2;
+			var str3 = '시 입니다.';
+			var sum5 = time1 + time2 + time3 + str3; //-> 현재 시간은 12시 입니다. (숫자변수 앞에 문자변수가 있어서 숫자 변수를 문자로 취급. 더하기만.)
+			var sum6 = time2 + time3 + str3; //-> 3시 입니다. (숫자변수 앞에 문자변수가 없기때문에)
+			document.write(sum5);
+			document.write('<br/>');
+			document.write(sum6);
+			document.write('<br/>');
+		</script>
+
+
+	</body>
+</html>
