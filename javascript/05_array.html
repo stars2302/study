@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array 배열</title>
+</head>
+<body>
+  <h2>배열</h2>
+  <script>
+    //배열 array
+    //1. 배열 만드는 법
+    //1-1. 첫번째
+    var fruits = [];
+    fruits[0] = '사과';
+    fruits[1] = '배';
+    fruits[2] = '바나나';
+
+    //1-2. 두번째
+    var fruits2 = ['사과','배','바나나','딸기'];
+    var animals = ['사자','호랑이','곰'];
+
+    document.write(fruits);//전체 출력
+    document.write(fruits[0]);//순번 출력
+
+
+
+
+    //2. property
+    //2-1. length() : 값의 개수
+    var amount = fruits.length;
+    document.write(amount);
+
+    //2-2. join() : 배열을 나열할 때 쓰이는 특수기호 등
+    var newStr = fruits.join('/');
+    document.write(newStr);
+
+    //2-3. reverse() : 배열의 역순 (원본의 순서도 바뀜.)
+    var newArr = fruits.reverse();
+    document.write(newArr);
+
+    //2-4. sort() : 가나다 순. 또는 함수를 사용해 순서를 바꿀 수 있음 (원본의 순서도 바뀜.)
+    var newArr2 = fruits.sort();
+    document.write(newArr2);
+    
+    //2-5. 배열1.concat(배열2); : 배열 2개를 합칠 때 사용.
+    var newArr3 = fruits.concat(animals);
+    document.write(newArr3);
+    
+    //2-6. slice(index 시작번호, index 끝번호-1) : 원하는 부분만 빼오고싶을 때.(원본유지)
+    var newArr4 = fruits.slice(1,3);
+    document.write(newArr4);
+    
+    //2-7. splice(index 시작번호, index 끝번호) : 원하는 부분만 빼오고싶을 때.(원본손상)
+    var newArr5 = fruits.splice(1,3);
+    document.write(newArr5);
+
+    var beers = ['하이네켄','카스','스텔라','블랑'];
+
+    //2-8. push() : 기존의 값 뒤에 추가.
+    beers.push('테라','제주비어');
+    document.write(beers);
+    
+    //2-9. unshift() : 기존의 값 앞에 추가.
+    beers.push('수제맥주');
+    document.write(beers);
+    
+    //2-10. pop() : 값의 맨 뒤를 삭제한다.
+    beers.pop();
+    document.write(beers);
+
+    //2-11. shift() : 값의 맨 앞을 삭제한다.
+    beers.shift();
+    document.write(beers);
+</script>
+</body>
+</html>

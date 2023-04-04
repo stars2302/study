@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for, while</title>
+</head>
+<body>
+  <h2>반복문</h2>
+  <script>
+    //1. 반복문
+    //1-1. 2씩 증가하는 반복문
+    //노고의 방법
+    var i = 2;
+    document.write(i + '<br/>');
+    // i = i + 2;
+    i += 2;
+    document.write(i + '<br/>');
+    i += 2;
+    document.write(i + '<br/>');
+    i += 2;
+    document.write(i + '<br/>');
+    i += 2;
+    document.write(i + '<br/>');
+    i += 2;
+    document.write(i + '<br/>');
+
+    //for 활용
+    //for(시작; 끝; 증감 값){할일}
+    for(var i = 2; i <= 12; i += 2) {
+      document.write(i + '<br/>');
+    }
+
+    //while 활용
+    var i = 2; //시작
+    while(i <= 12) { //끝
+      document.write(i + '<br/>'); //할 일
+      i += 2; //증감 값
+    }
+
+
+
+    //1-2. while을 이용해서 구구단을 만들어 보자!
+    var a = 1;
+    while(a <= 9) {
+      document.write('3 X '+ a +' = '+ (a*3) + '<br/>');
+      a++;
+    }
+
+    //1-2. for를 이용해서 구구단을 만들어 보자!
+    for(var a = 1; a  <= 9; a++) {
+      document.write('3 X ' + a + ' = ' + (a*3) + '<br/>');
+      if(i == 6) break; //-> ++ 6단에서 멈춰!
+    }
+  </script>
+</body>
+</html>

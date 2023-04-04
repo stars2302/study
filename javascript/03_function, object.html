@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>functionk, object</title>
+</head>
+<body>
+  <h1>함수(function)</h1>
+  <script>
+    //++var, function은 선언만 하면 출력은 되지 않음.
+
+    //1. function (함수)
+    //1-1. 함수의 기본 구조
+    function send() {
+      alert('경고');
+    }
+    send();
+    
+    
+    // 1-2. 매개변수와 인자
+    function plus(x,y) { //-> x,y 는 매개변수.
+      var z=x+y;
+      return z;
+    }
+    plus(3,2); //-> 3,2는 인자.
+    
+    
+    // 1-3. 입력, 할일, 출력으로 구성됨.
+    var a = 10;
+    var b = 20;
+
+    function add(x,y){ //입력
+      var sum = x + y; //할 일
+      return sum; //출력
+    }
+    
+    var total = add(a,b);
+    document.write(total);
+    document.write(add('부','승관'));
+
+    // 1-4. 전역변수, 지역변수
+    var a = 10; //전역변수(어디든 사용할 수 있는 변수.)
+    var b = 20; //전역변수
+
+    function add(x,y){ 
+      var sum = x + y; //지역변수(sum) -> 함수 안에서만 사용가능 한 변수.
+      return sum;
+    }
+    
+    var total = add(a,b);
+    document.write(sum); //-> undefined(지역변수이기에 찾지 못함.)
+
+    // 1-5. 함수를 부르고 후에 선언해도 작동이 됨.(함수선언의 위치와 상관없이 호출가능)
+  </script>
+  <hr/>
+
+
+
+  <h2>객체(object)</h2>
+  <script>
+    //2. 객체(object)
+    //2-1. 객체 = 변수 + 함수
+    //2-2. 객체를 만드는 방법
+    //첫번째방법 : var obj = new Object();
+    var baby = {
+      age: '2살',
+      sex: '남자',
+      birthday: '5월 1일',
+      getAge: getAge //-> 객체 안에서 함수를 직접 적을 수도 있지만 함수명을 적고
+    }
+
+    function getAge(){ //-> 함수자체를 따로 적을 수 있음.
+      return this.age;
+    }
+
+    var age = baby.getAge();
+    document.write(age);
+
+    //두번째방법 : var obj = {};
+    var baby = {};
+    baby.age = "2살";
+    baby.sex = "남자";
+    baby.birthday = "5월 1일";
+
+    document.write(baby.age);
+    document.write(baby.birthday);
+    
+  </script>
+</body>
+</html>
