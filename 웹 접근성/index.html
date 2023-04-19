@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko-KR"><!-- 기본 언어를 지정 ++ko는 북한 + 남한 ++KR은 생략가능 -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이디야(Ediya)</title><!-- 모든 페이지의 타이틀이 동일해 지지 않도록 작성. 불필요한 특수기호X -->
+</head>
+<body>
+  <header>
+    <h1>EDIYA COFFEE</h1>
+    <button aria-label="메뉴 열기" title="메뉴 열기"><span class="ir"></span></button>
+    <!-- aria 속성을 지원하지 않을 경우를 대비해 title도 활용해주기 -->
+    <nav>
+      <h2 class="hidden">메인 메뉴(숨김제목)</h2>
+      <ul>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">이디야멤버스</a></li>
+        <li><a href="#">이디야커피랩</a></li>
+        <li><a href="#">이디야컬쳐랩</a></li>
+        <li><a href="#">공지사항</a></li>
+        <li><a href="#">매장찾기</a></li>
+      </ul>
+      <!-- <button><span>X</span></button> -->
+      <!-- 스크린 리더기가 엑스버튼으로 읽게됨. -->
+      <button aria-label="메뉴 닫기" title="메뉴 닫기"><span aria-hidden="true">X</span></button>
+      <!-- aria-hidden -> 스크린리더기가 무시를 함. -->
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="hidden">이디야 음료(숨김제목)</h2>
+    <ul>
+      <li>
+        <a href="/" role="button" aria-haspopup="dialog" aria-pressed="false">
+          <figure><!-- button 자식으로 figure가 들어갈 수 없음. -->
+            <img src="img" alt="" /><!-- figcaption으로 같은 내용을 전달하고 있기에 공란으로. -->
+            <figcaption>ICED 벚꽃라떼</figcaption>
+          </figure>
+        </a>
+
+        <div role="dialog" aria-modal="false" aria-labelledby="ediya-menu__item1">
+        <!-- aria-modal="false" : 내용과 관련 O / "true" : 내용과 관련X -->
+        <!-- dialog(다이얼로그) : 팝업 대화상자 및 모달 -->
+          <h3 id="ediya-menu__item1">ICED 벚꽃라떼
+            <span lang="en">Cherry Blossom Latte</span>
+          </h3>
+          <!-- 다이얼로그는 레이블링이 필요함. id와 aria-labelledby를 통일시켜 레이블링. -->
+          <p>은은한 벚꽃향과 라즈베리 화이트 초콜릿 토핑이 올라간 핑크빛 라떼</p>
+          <dl>
+            <dt>칼로리</dt><dd>(393kcal)</dd>
+            <dt>당류</dt><dd>(35g)</dd>
+            <dt>단백질</dt><dd>(7g)</dd>
+            <dt>포화지방</dt><dd>(18.6g)</dd>
+            <dt>나트륨</dt><dd>(149mg)</dd>
+            <dt>카페인</dt><dd>(0mg)</dd>
+          </dl>
+          <button type="button" title="닫기" aria-label="음료정보패널닫기">
+            <span aria-hidden="true">X</span>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    푸터(숨김 콘텐츠)
+  </footer>
+
+
+
+  <div role="banner">헤더</div>
+  <div role="main">메인</div>
+  <div role="contentinfo">푸터</div>
+  <!-- role 속성을 이용해 역할을 줄 수 있지만, 시맨틱태그를 사용하자. -->
+  <!-- <header role="banner"></header> 의 혼용은 X -->
+
+
+
+  <!-- 
+  0. WCAG - W3C 웹 콘텐츠 접근성 가이드라인 표준 권고안
+
+  1. <html lang="ko">
+  원칙 3 이해의 용이성 - 콘텐츠는 이해할 수 있어야 한다.
+  -> 주로 사용하는 언어를 명시해야 한다.
+
+  2. <head><title>문서제목</title></head>
+  원칙 2 운용의 용이성 - 사용자 인터페이스 구성요소는 조작가능하고 내비게이션 할 수 있어야한다.
+  -> 페이지, 프레임, 콘텐츠 블록에는 적절한 제목을 제공해야 한다.
+
+  3. h요소를 사용할 때, h1 -> h3 처럼 건너뛰지 않는다.
+
+  4. 닫기버튼이나 더보기버튼은 위에 위치하였어도 마지막 자식으로 마크업 한다.
+  -> 프레임, 콘텐츠는 논리적인 순서로 제공해야 한다.
+
+  5. 버튼 등 background-image로 제공하는 경우 aria-label, title을 이용해 대체텍스트 작성.
+    + aria-hidden="true"을 이용해 스크린리더기가 읽지 말아야 할 내용에 사용.
+  
+  6. img alt를 작성할 때 설명텍스트가 다른태그로 명시되어있을 경우 공란으로 둔다.(리더기가 2번 읽게 됨)
+
+  7. button의 자식으로 figure가 들어갈 수 없다. (웹표준)
+
+  8. section 이외에도 자잘한 부분에 소제목을 붙이기!!!!!
+  -->
+</body>
+</html>
