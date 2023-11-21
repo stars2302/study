@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {width: 80px; height: 40px;}
+    .color_box {
+      width: 100%;
+      height: 500px;
+      --start: hsl(0, 100%, 50%);
+      --end: hsl(322, 100%, 50%);
+      background: linear-gradient(-180deg, var(--start), var(--end));
+    }
+  </style>
+</head>
+<body>
+  <script>
+    /* --------------------------- 정수계산 ----------------------------- */
+
+    // 1. 최대 정수값
+    //Number.MAX_VALUE
+    console.log(Number.MAX_VALUE); //1.7976931348623157e+308
+
+
+    // 2. 최소 정수값
+    //Number.MIN_VALUE
+    console.log(Number.MIN_VALUE); //5e-324
+
+
+    // 3. js 안전하게 다룰 수 있는 최대 정수값
+    //Number.MAX_SAFE_INTEGER
+    console.log(Number.MAX_SAFE_INTEGER); //9007199254740991
+
+
+    // 4. js 안전하게 다룰 수 있는 최소 정수값
+    //Number.MIN_SAFE_INTEGER
+    console.log(Number.MIN_SAFE_INTEGER); //-9007199254740991
+
+
+    // 5. 부정확한 계산 결과에 따라 반환되는 특별한 값!
+    //NaN : Not a Number
+    //Infinity(양의 무한값) / -Infinity(음의 무한값)
+    //보통 에러값으로 많이 확인 됨.
+    console.log(Number.POSITIVE_INFINITY); //Infinity
+    console.log(Number.NEGATIVE_INFINITY); //-Infinity
+
+
+    // 실험!!
+    // 최대 정수값을 곱하면?!
+    console.log(Number.MAX_SAFE_INTEGER * Number.MAX_SAFE_INTEGER * Number.MAX_SAFE_INTEGER); //7.307508186654512e+47
+    console.log(Number.MAX_VALUE + Number.MAX_VALUE); // Infinity
+    console.log(Number.MAX_VALUE * -Number.MAX_VALUE); // -Infinity
+    /* -------------------------------------------------------- */
+
+
+
+    /* ---------------------- 반올림, 올림, 버림 -------------------- */
+
+    // 1. 반올림
+    // Math.round(값);
+    // 무조건 소수점 첫째자리에서 반올림 
+
+    // 양수는(0.5 미만, 이상을 기준으로 반올림하기 때문!)
+    console.log(Math.round(100.7)); //101
+    console.log(Math.round(100.55)); //101
+    console.log(Math.round(100.0003)); //100
+    console.log(Math.round(100.47)); //100
+
+    //-0.1 ~ -0.5 올림, -0.51 ~ 0.9 내림
+    console.log(Math.round(-100.47)); //-100
+    console.log(Math.round(-100.5)); //-100
+    console.log(Math.round(-100.51)); //-101
+    console.log(Math.round(-100.7)); //-101
+
+
+
+    // 2. 올림
+    // Math.floor(값);  ++floor : 바닥
+    // 소수점 아래자리 무조건 버림. (값보다 "작은" 제일 가까운 정수로 변환)
+    console.log(Math.floor(100.2)); //100
+    console.log(Math.floor(100.5)); //100
+    console.log(Math.floor(100.55)); //100
+
+    console.log(Math.floor(-100.5)); //-101
+    console.log(Math.floor(-100.2)); //-101
+    console.log(Math.floor(-100.7)); //-101
+
+
+
+    // 3. 내림
+    // Math.ceil(값); ++ceil : 천장
+    // 소수점 아래자리 무조건 올림 (값보다 '큰' 제일 가까운 정수로 변환)
+    console.log(Math.ceil(100.2)); //101
+    console.log(Math.ceil(100.5)); //101
+    console.log(Math.ceil(100.55)); //101
+
+    console.log(Math.ceil(-100.5)); //-100
+    console.log(Math.ceil(-100.2)); //-100
+    console.log(Math.ceil(-100.7)); //-100
+
+
+
+    // 4. 정수만 추출
+    // Math.trunc(값);
+    // 계산할거 없이 그냥 있는 그대로 정수만 반환
+    console.log(Math.trunc(100.45)); //100
+    console.log(Math.trunc(100.7)); //100
+    console.log(Math.trunc(100.2)); //100
+
+    console.log(Math.trunc(-100.45)); //-100
+    console.log(Math.trunc(-100.7)); //-100
+    console.log(Math.trunc(-100.2)); //-100
+    /* -------------------------------------------------------- */
+
+
+
+
+    /* ---------------------- 난수,랜덤수 -------------------- */
+
+    // 1. 난수, 랜덤 수
+    // Math.random();
+    // 불러올때마다 달라지는 진짜 말 그대로 랜덤한 수, 
+    // 기본적으로 0 ~ 1 사이의 수,
+    // 그래서 새로고침 할 때 마다 결과값 달라짐!
+    console.log(Math.random()); //0.42912625128711923
+
+    // * 10의 수식을 이용해서 1 ~ 10의 난수를 추출
+    console.log(Math.random() * 10); //6.144706824030221
+    
+    // 위와 같은 원리로 10 ~ 100의 난수를 추출
+    console.log(Math.random() * 100);
+
+
+    // 2. 안전한 난수 사용
+    // 비밀번호 등 정보보호가 중요한 문자열 생성 시!
+    //crypto.getRandomValues(타입지정배열);  ++ crypto(크립토) : 은밀한, 숨김
+
+    //16진수의 타입배열을 넣어 랜덤한 배열을 만들 수 있음
+    console.log(crypto.getRandomValues(new Uint16Array(5))); //Uint16Array(5) [36354, 48400, 4543, 7752, 51481]
+    
+    //크립토와 JOIN을 함께 사용해 안전한 난수를 만들어낼 수 있음!
+    console.log(crypto.getRandomValues(new Uint32Array(3)).join('')); //23506604019093503592256468171
+    
+  </script>
+
+
+  <h2>'난수'를 이용한 버튼 클릭시 색상이 바뀌는 마법!</h2>
+  <button>Click!</button>
+  <div class="color_box"></div>
+  <script>
+    const item = document.querySelector('.color_box');
+
+    //버튼 클릭 시 clickBTN 실행
+    const btn = document.querySelector('button');
+    btn.addEventListener('click',clickBTN);
+
+    //clickBTN 함수
+    function clickBTN(){
+      //0 ~ 359 사이의 수
+      const randomHue = Math.trunc(Math.random()*360);
+      
+      //시작, 끝 색
+      const randomHueStart = `hsl(${randomHue}, 100%, 50%)`;
+      const randomHueEnd = `hsl(${randomHue+70}, 100%, 50%)`;
+
+      //그라데이션 변수 설정
+      item.style.setProperty('--start',randomHueStart);
+      item.style.setProperty('--end',randomHueEnd);
+    }
+  </script>
+</body>
+</html>
