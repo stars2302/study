@@ -143,6 +143,76 @@
     //크립토와 JOIN을 함께 사용해 안전한 난수를 만들어낼 수 있음!
     console.log(crypto.getRandomValues(new Uint32Array(3)).join('')); //23506604019093503592256468171
     
+    /* -------------------------------------------------------- */
+
+
+
+
+    /* ---------------------- 절대값, 제곱근, 로그 -------------------- */
+
+    // 1. 절대값
+    //Math.abs(값);  ++absolute : 절대값
+    // - , + 상관없이 양수로 변환? 부호 뺀 값
+    console.log(Math.abs(-100)); //100
+    console.log(Math.abs(100)); //100
+    console.log(Math.abs(-100.9883)); //100.9883
+    console.log(Math.abs(100.9883)); //100.9883
+
+
+    // 2. 거듭제곱
+    //Math.pow(값1, 값2);  ++power : 거듭제곱
+    // 값1의 값2 승. 값1을 값2번(횟수)만큼 곱한 값.
+    console.log(Math.pow(1,10000)); //1
+    console.log(Math.pow(2,3)); //8
+
+
+    // 3. 사인
+    // Math.sign(값);
+    // 부호계산. 음수면 -1, 양수면 1, 0은 0
+    // 주로 값의 부호를 확인할 때 사용!
+    console.log(Math.sign(-100)); //-1
+    console.log(Math.sign(-1235)); //-1
+    console.log(Math.sign(100)); //1
+    console.log(Math.sign(1235)); //1
+    console.log(Math.sign(0)); //0
+    console.log(Math.sign(-0)); //-0
+
+
+    // 4. 제곱근
+    // Math.sqrt(값);   ++ "square root" : 제곱근
+    // 제곱근을 계산 
+    console.log(Math.sqrt(16)); //4
+    console.log(Math.sqrt(256)); //16
+
+
+    // 5. 자연로그
+    // Math.log(값);
+    console.log(Math.E);//2.718281828459045
+    console.log(Math.log(Math.E)); //1
+
+
+    // 6. 지수함수
+    // Math.exp(값);
+    console.log(Math.exp(10)); //22026.465794806718
+    console.log(Math.exp(16)); //8886110.520507872
+    console.log(Math.exp(1)); //2.718281828459045
+    console.log(Math.exp(0)); //1
+    console.log(Math.exp(-1)); //0.36787944117144233
+
+
+    //++ -0은 무엇인가
+    console.log(1 / 0);  // Infinity
+    console.log(1 / -0);  // -Infinity           Array.from('🚓🚓🚓ㅁㅁㅁ').length
+    
+    /* -------------------------------------------------------- */
+
+
+    /* ---------------------- 삼각함수 -------------------- */
+
+
+
+
+
   </script>
 
 
