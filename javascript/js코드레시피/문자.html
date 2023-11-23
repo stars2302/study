@@ -113,10 +113,43 @@
     // 차이점은 문자열이 중복될 경우, 가장 뒤에 위치한 글자위치 반환
     console.log('안녕하세요'.lastIndexOf('세')); //3
     console.log('안녕하세요 반갑습니다요 건강하세요'.lastIndexOf('요')); //17
-  
-  
+
+
 
     // 3. 문자열.search(정규표현);
+
+    // 정규표현을 활용해 조금 더 체계화된 검색을 할 때 사용
+    console.log('안녕하세요'.search(/안녕/));//0
+    console.log('안녕하세요'.search(/요/));//4
+    console.log('안녕하세요'.search(/승관/));//-1
+    /* -------------------------------------------------------- */
+
+
+    /* --------------------------- 문자열 검색하기(boolean) ----------------------------- */
+    
+    // 1. 문자열.includes('찾을 문자열',[검색 시작 인덱스]);
+    // 위치에 상관없이 찾을 문자열이 포함되면 true, 아니면 false
+    console.log('부승관은 귀여워요.'.includes('승관'));//true
+    console.log('부승관은 귀여워요.'.includes('사랑'));//false
+    console.log('부승관은 귀여워요.'.includes('승관',6));//false
+
+
+    // 2. 문자열.startWith('찾을 문자열',[검색 시작 인덱스]);
+    // 시작문자가 찾을 문자열과 일치하면 true, 아니면 false
+    console.log('부승관은 귀여워요.'.startsWith('승관'))//false
+    console.log('부승관은 귀여워요.'.startsWith('부'))//true
+    console.log('부승관은 귀여워요.'.startsWith('부승'))//true
+    console.log('부승관은 귀여워요.'.startsWith('부승 귀'))//false
+
+
+    // 3. 문자열.endWith('찾을 문자열',[검색 시작 인덱스]);
+    // 끝문자가 찾을 문자열과 일치하면 true, 아니면 false
+    console.log('부승관 사랑해'.endsWith('해'));//true
+    console.log('부승관 사랑해'.endsWith('사랑'));//false
+    console.log('부승관 사랑해'.endsWith('사랑해'));//true
+    /* -------------------------------------------------------- */
+
+
     
   </script>
 
