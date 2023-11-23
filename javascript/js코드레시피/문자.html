@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* --------------------------- 문자열 기초 ----------------------------- */
+
+    // 1. JS에서 문자열 작업
+    //  - 문자열 길이 확인
+    //  - 문자열 검색하기
+    //  - 문자열 추출하기
+    //  - 문자열 변환하기
+    //  - 문자열 나누기
+    //  - 문자열 결합하기
+
+    // 2. 문자열에서 특수문자 사용하기
+    // 앞에 \(역슬래쉬)를 붙여 사용하자!
+    // \' \" \` \\  \n(줄바꿈) \t(탭)  \r(되돌리기 <- 커서를 행의 앞으로 이동, 잘 사용하지 않음)
+
+    console.log('안녕\n하세요'); 
+    /* 
+    안녕
+    하세요
+    */
+    /* -------------------------------------------------------- */
+
+
+    /* --------------------------- 문자열 길이 확인 ----------------------------- */
+
+    // 1. 문자열.length
+    // 한.영 상관없이 그대로 계산
+    // 공백도 1글자로 인정!!
+    console.log('안녕하세요'.length); //5
+    console.log('javascript'.length); //10
+    console.log('부승관 귀여워'.length); //7
+
+    // ** 문제점 : 😀 이모티콘은 2글자로 인정
+    // 이모티콘은 Surrogate Pair이기때문!! 기본적으로 1글자당 2바이트, Surrogate Pair는 4바이트임
+
+
+    // 2. Array.from(문자열).length
+    // 이모티콘 문제를 해결할 수 있음!
+    // 기본문자, 이모티콘 상관없이 1글자로 인식함.!
+    console.log(Array.from('안녕하세요!😀★').length); //8
+
+    // ** 이모티콘 입력에 제한을 두지 않는 이상 2번 방법이 안전할듯?
+
+    /* -------------------------------------------------------- */
+  </script>
+  <h2>일반 문자를 입력해보세요!</h2>
+  <textarea name="input" id="" cols="50" rows="5" class="reg_input"></textarea>
+  <p>현재 입력된 글자 수는 <span class="rs1"></span>글자 입니다.</p>
+  <hr>
+  <h2>이모티콘도 입력해보세요!😀</h2>
+  <textarea name="input" id="" cols="50" rows="5" class="sp_input"></textarea>
+  <p>현재 입력된 글자 수는 <span class="rs2"></span>글자 입니다.</p>
+  <script>
+    document.querySelector('.reg_input')
+    .addEventListener('keyup',(e)=>{ //keydown은 묘하게 글자차이가 남. 딜레이나는거처럼, 아무튼 이상하게 count됨
+      let val = e.target.value.length;
+      document.querySelector('.rs1').innerText = val;
+    });
+
+    document.querySelector('.sp_input')
+    .addEventListener('keyup',(e)=>{
+      let val = Array.from(e.target.value).length;
+      document.querySelector('.rs2').textContent = val;
+    })
+  </script>
+
+
+  <script>
+    /* --------------------------- 문자열 공백제거 ----------------------------- */
+    
+    // 1. 문자열.trim();
+    // 문자열 양 끝의 공백을 제거
+    // 중간공백은 제외
+    // \n \t도 마찬가지!
+    console.log('  안녕  ');//  안녕  
+    console.log('  안녕  '.trim());//안녕
+    console.log(' 개. 고양이. 소    '.trim()); //개. 고양이. 소
+    console.log('  \n안녕하세\t용\t  '.trim());//안녕하세  용
+    /* -------------------------------------------------------- */
+
+
+    /* --------------------------- 문자열 검색하기(index) ----------------------------- */
+
+    // 1. 문자열.indexOf('찾을 문자열',[검색 시작 인덱스]);
+
+    // 문자열 중 찾을 문자열이 어느 index값에 있는지 반환
+    console.log('안녕하세요'.indexOf('세')); //3
+    
+    // 찾을 문자열이 중복될 경우, 가장 앞에 위치한 글자위치 반환
+    console.log('안녕하세요 반갑습니다요 건강하세요'.indexOf('요')); //4
+    
+    // 두번째 인자를 넣으면 해당 위치부터 찾기 시작함.
+    // 검색 시작 인덱스는 생략가능!
+    // index 6번부터 찾기 시작하기에 첫번째 '요'는 무시하고 두번째 '요'를 찾은거임.
+    console.log('안녕하세요 반갑습니다요 건강하세요'.indexOf('요',6)); //11
+
+    // 찾을 문자열이 없는 경우 -1 로 반환
+    console.log('안녕하세요'.indexOf('부승관')); //-1
+
+
+
+    // 2. 문자열.lastIndexOf('찾을 문자열',[검색 시작 인덱스]);
+    
+    // indexOf랑 사용법은 비슷.
+    // 차이점은 문자열이 중복될 경우, 가장 뒤에 위치한 글자위치 반환
+    console.log('안녕하세요'.lastIndexOf('세')); //3
+    console.log('안녕하세요 반갑습니다요 건강하세요'.lastIndexOf('요')); //17
+  
+  
+
+    // 3. 문자열.search(정규표현);
+    
+  </script>
+
+</body>
+</html>
