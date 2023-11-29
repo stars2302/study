@@ -475,14 +475,41 @@
     console.log(encodeURI('https://안녕.~! *별칭은{}[] `네이버\'_-고양이123"()&$@=+;,#'));
     // https://%EC%95%88%EB%85%95.~!%20*%EB%B3%84%EC%B9%AD%EC%9D%80%20%60%EB%84%A4%EC%9D%B4%EB%B2%84'_-%EA%B3%A0%EC%96%91%EC%9D%B4123%22()%7B%7D%5B%5D&$@=+;,#
 
+    // 1-1. decodeURI(문자열)
+    // encodeURI의 반대. 이스케이프 암호화된 문자열을 복원할 때 사용.
+    console.log(decodeURI('https://%EC%95%88%EB%85%95.~!%20*%EB%B3%84%EC%B9%AD%EC%9D%80%20%60%EB%84%A4%EC%9D%B4%EB%B2%84\'_-%EA%B3%A0%EC%96%91%EC%9D%B4123%22()%7B%7D%5B%5D&$@=+;,#')); //https://안녕.~! *별칭은 `네이버'_-고양이123"(){}[]&$@=+;,#
+
 
     // 2. encodeURIComponent(문자열)
     // encodeURI보다 이스케이프 범위가 넓음.
     // 숫자, 영문자, () (소괄호), _(언더스코어), -(하이픈), '(작은따옴표), .(온점), ~(늘임표), !(느낌표), *(별) 제외!
     console.log(encodeURIComponent('https://안녕.~! *별칭은{}[] `네이버\'_-고양이123"()&$@=+;,#:/~!@#$%^&*()-_+=,./;:\'"`~'));
     // https%3A%2F%2F%EC%95%88%EB%85%95.~!%20*%EB%B3%84%EC%B9%AD%EC%9D%80%7B%7D%5B%5D%20%60%EB%84%A4%EC%9D%B4%EB%B2%84'_-%EA%B3%A0%EC%96%91%EC%9D%B4123%22()%26%24%40%3D%2B%3B%2C%23%3A%2F~!%40%23%24%25%5E%26*()-_%2B%3D%2C.%2F%3B%3A'%22%60~
-    /* -------------------------------------------------------- */
 
+    // 2-1. decodeURIComponent(문자열)
+    // encodeURIComponent의 문자열을 복원할 때 사용.
+    /* -------------------------------------------------------- */
+  </script>
+
+
+  <hr>
+  <h2>트윗하고 싶은 내용을 입력해주세요.</h2>
+  <textarea name="text" cols="50" rows="3" id="tweet_text"></textarea>
+  <button class="tweet_btn">트윗</button>
+  <script>
+    document.querySelector('.tweet_btn').addEventListener('click',()=>{
+      let tweetText = document.querySelector('#tweet_text').value;
+      // tweetText += ' #Javascript'; //해시태그
+
+      //인코딩
+      let encodeText = encodeURIComponent(tweetText);
+
+      //링크 작성
+      let tweetURL = `https://twitter.com/intent/tweet?text=${encodeText}`;
+
+      //링크 열기
+      window.open(tweetURL); //target="_blank"로 열림.
+    });
   </script>
 </body>
 </html>
