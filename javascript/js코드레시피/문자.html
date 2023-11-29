@@ -511,5 +511,18 @@
       window.open(tweetURL); //target="_blank"로 열림.
     });
   </script>
+
+  <hr>
+  <h2>네이버에 검색하고 싶은 내용을 입력해주세요.</h2>
+  <textarea name="text2" id="naver_text" cols="50" rows="1"></textarea>
+  <button class="naver_btn">검색</button>
+  <script>
+    document.querySelector('.naver_btn').addEventListener('click',()=>{
+      let naver_text = document.querySelector('#naver_text').value;
+      let encodeNaver = encodeURIComponent(naver_text);
+      let naverURL = `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${encodeNaver}`;
+      window.open(naverURL);
+    });
+  </script>
 </body>
 </html>
