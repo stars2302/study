@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* --------------------- forEach -------------------- */
+    /*
+    기본문법
+
+    배열.forEach((item,[index,allArr])=>{
+      할일;
+    });
+
+    ** 기본적으로 배열의 요소만큼 반복하며 실행됨.
+    ** item : 배열의 각 요소들
+    ** index : 배열 요소들의 index 번호
+    ** allArr : 배열 원본!
+    */
+
+    const arr1 = ['곰','고양이','승관'];
+
+    // index, allArr은 생략가능
+    arr1.forEach(item=>{
+      console.log(`${item}은(는) 귀여워`);
+      /*
+      곰은(는) 귀여워
+      고양이은(는) 귀여워
+      승관은(는) 귀여워
+      */
+    });
+
+    arr1.forEach((item,idx)=>{
+      console.log(`${item} 은(는) ${idx}배로 사랑스러워`);
+      /*
+      곰 은(는) 0배로 사랑스러워
+      고양이 은(는) 1배로 사랑스러워
+      승관 은(는) 2배로 사랑스러워
+      */
+    });
+
+    // 파라미터의 이름은 중요하지 않음! 중요한건 순서.!! 
+    arr1.forEach((i,d,all)=>{
+      console.log(all);
+      /*
+      (3) ['곰', '고양이', '승관']
+      (3) ['곰', '고양이', '승관']
+      (3) ['곰', '고양이', '승관']
+      */
+    });
+
+
+    //map, filter를 사용해 새로 반환된 배열을 바로 그대로 사용할 수 있음(for문, for..of문은 안됨)
+    [1,2,3,4,5,6,7,8,9,10]
+    .filter(val=>val%2===0)
+    .forEach(val=>
+      console.log(val)
+      /*
+      2
+      4
+      6
+      8
+      10
+      */
+    );
+    /* -------------------------------------------------------- */
+  </script>
+  <H2>유저 리스트</H2>
+  <ul id="container"></ul>
+  <hr>
+  <script>
+    const userList = [
+      {id: 1, name: '부승관', address:'제주도'},
+      {id: 2, name: '최승철', address:'대구'},
+      {id: 3, name: '이지훈', address:'부산'}
+    ];
+
+    const container = document.querySelector('#container');
+    userList.forEach((userData)=>{
+      container.innerHTML += `
+        <li>
+          <h3>이름 : ${userData.name}</h3>
+          <p>주소 : ${userData.address}</p>
+          <p>유저ID : ${userData.id}</p>
+        </li>
+      `;
+    })
+    /* -------------------------------------------------------- */
+
+
+    /* ------------------------ for...of ----------------------- */
+    /*
+    기본문법
+    */
+  </script>
+</body>
+</html>
