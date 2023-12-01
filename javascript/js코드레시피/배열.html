@@ -379,6 +379,12 @@
     });
     console.log(arr94);//['a', 'A', 'b', 'CC', 'E', 'e', 'ee', 'f']
 
+    // 2-4. 대소문자 구분없이 오름차순(영문)
+    arr94.sort((a,b)=>{
+      a.localeCompare(b);
+    });
+    console.log(arr94);//['a', 'A', 'b', 'CC', 'E', 'e', 'ee', 'f']
+
 
     // 2-5. 대소문자 구분없이 내림차순(영문)
     arr94.sort((a,b)=>{
@@ -391,8 +397,14 @@
     });
     console.log(arr94);//['f', 'ee', 'E', 'e', 'CC', 'b', 'a', 'A']
 
+    // 2-5. 대소문자 구분없이 내림차순(영문)
+    arr94.sort((a,b)=>{
+      b.localeCompare(a);
+    });
+    console.log(arr94);//['f', 'ee', 'E', 'e', 'CC', 'b', 'a', 'A']
 
-    // 2-6. 비교함수 생략할 시, 유니코드 순서
+
+    // 2-6. 비교함수 생략할 시, 유니코드 순서 (특별한 이유가 없다면 비교함수는 작성해둘것!@!)
     arr92.sort();
     console.log(arr92);//[1, 11, 2, 22, 3, 33, 4, 5]
 
@@ -420,6 +432,72 @@
     1 : {name: 'apple', price: 1000},
     2 : {name: 'banana', price: 3000}
     */
+  </script>
+  <hr>
+  <h2>객체 유저리스트 오름차순 / 내림차순</h2>
+  <button id="name_as">이름 오름차순</button>
+  <button id="name_des">이름 내림차순</button>
+  <button id="uid_as">아이디 오름차순</button>
+  <button id="uid_des">아이디 내림차순</button>
+  <ul id="user_list">
+
+  </ul>
+  <script>
+    const userList2 = [
+      {id: 2, name: '곰'},
+      {id: 10, name: '여우'},
+      {id: 4, name: '사자'},
+      {id: 29, name: '기린'},
+      {id: 101, name: '호랑이'},
+      {id: 40, name: '고양이'}
+    ];
+    const user_ul = document.querySelector('#user_list');
+
+
+    //기존 리스트 출력 & 리스트 재출력
+    let listRe = ()=>{
+      user_ul.innerHTML = '';
+      for(let i of userList2){
+        user_ul.innerHTML += `<li>${i.id} : ${i.name}</li>`;
+      }
+    }
+    listRe();
+
+    //아이디 오름차순
+    document.querySelector('#uid_as').addEventListener('click',()=>{
+      userList2.sort((a,b)=>{
+        return a.id-b.id;
+      });
+      listRe();
+    });
+
+    //아이디 내림차순
+    document.querySelector('#uid_des').addEventListener('click',()=>{
+      userList2.sort((a,b)=>{
+        return b.id-a.id;
+      });
+      listRe();
+    });
+
+    //이름 오름차순
+    document.querySelector('#name_as').addEventListener('click',()=>{
+      userList2.sort((a,b)=>{
+        if(a.name > b.name) return 1;
+        if(a.name == b.name) return 0;
+        if(a.name < b.name) return -1;
+      });
+      listRe();
+    });
+
+    //이름 오름차순
+    document.querySelector('#name_des').addEventListener('click',()=>{
+      userList2.sort((a,b)=>{
+        if(a.name < b.name) return 1;
+        if(a.name == b.name) return 0;
+        if(a.name > b.name) return -1;
+      });
+      listRe();
+    });
   </script>
 
 </body>
