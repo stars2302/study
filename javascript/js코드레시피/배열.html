@@ -577,6 +577,50 @@
     // 반대로 계산.
     /* -------------------------------------------------------- */
 
+
+    /* ------------------ 유사배열을 배열로 -------------------- */
+
+    // *유사배열을 배열로 변환할 때 사용.
+    // 유사배열 : length로 크기를 확인할 수 있고, 인덱스가 부여된 요소를 가진것들
+    // 유사배열 예 : NodeListOf(document.querySelectAll), 문자열
+    
+    // 1. [...변환대상]  -  스프레드 연산자
+    // 1-1. 배열을 활용하는 함수들의 대상에 유사배열을 넣으면 오류가 남.
+    const element = document.querySelectorAll('button');
+    // element.filter(item=>item.classList.contains('on')); //element.filter is not a function
+    [...element].filter(item=>item.classList.contains('on')); //오류없이 작동
+
+    // 1-2. 문자열도 배열로 변환할 수 있음
+    const string = '승관이귀여워';
+    console.log([...string]); //['승', '관', '이', '귀', '여', '워']
+    
+    const rs8 = [...string].map(char=>char+'!'); 
+    console.log(rs8); //['승!', '관!', '이!', '귀!', '여!', '워!']
+
+
+    // 2. Array.from(배열,[(item,index,allArr)=>{}]);
+    // 2-1. 기본.
+    console.log(Array.from(string)); //['승', '관', '이', '귀', '여', '워']
+
+    // 2-2. 콜백함수를 통해 map의 기능을 동시에 진행
+    const newStr = Array.from(string,char=>char+'!');
+    console.log(newStr); //['승!', '관!', '이!', '귀!', '여!', '워!']
+    /* -------------------------------------------------------- */
+
+
+    /* ----------------------- 분할대입 ---------------------------- */
+
+    let a;
+    let b;
+    let c;
+    
+    [a,b,c] = [1,10,100];
+
+    console.log(a); //1
+    console.log(b); //10
+    console.log(c); //100
+    /* -------------------------------------------------------- */
+
   </script>
 
 </body>
