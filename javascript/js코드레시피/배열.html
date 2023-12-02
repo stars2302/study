@@ -554,7 +554,29 @@
     /* -------------------------------------------------------- */
 
 
-    
+    /* ------------------ 배열 한개로 정리 -------------------- */
+
+    // 1. 배열.redux((prev,current,index,allArr)=>{배열들 계산식})
+
+    // 1-1. 배열의 수를 모두 더하기
+    const arr201 = [10,1000,230320,304,201];
+    const rs13 = arr201.reduce((prev,cur)=>prev+cur);
+    console.log(rs13); //231835
+
+    // 1-2. 배열의 문자열 더하기
+    const arr202 = ['사자','호랑이','뱀','쥐'];
+    const rs12 = arr202.reduce((prev,curr)=>`${prev}와 ${curr}`);
+    console.log(rs12); //사자와 호랑이와 뱀와 쥐
+
+    // 1-3. 2차배열을 1차배열로
+    const arr203 = [['승관','정한','도겸'],['호시','디노']];
+    const rs9 = arr203.reduce((prev,curr)=>prev.concat(curr));
+    console.log(rs9); //['승관', '정한', '도겸', '호시', '디노']
+
+    // 2. 배열.reduxRight((prev,current,index,allArr)=>{배열 계산식})
+    // 반대로 계산.
+    /* -------------------------------------------------------- */
+
   </script>
 
 </body>
