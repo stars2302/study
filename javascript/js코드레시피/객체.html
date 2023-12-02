@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* ----------------------- 객체 -------------------------- */
+
+    //객체 구조
+    const object = {
+      id: 1,
+      name: '세모',
+      age: 4
+    }
+
+    // - 속성(property) = "id:1" "name:'세모'" "age: 4"
+    // - 키(key) = "id" "name" "age"
+    // - 값(value) = "1" "'세모'" "4"
+
+    // 객체 특징
+    // - 속성의 데이터 타입의 제한은 없다. (배열,객체,함수 상관없이 모두 사용가능)
+    /* -------------------------------------------------------- */
+
+
+    /* ----------- 객체 선언, 수정, 확인 -------------------- */
+
+    // 1. 객체 선언하기
+    // 1-1. 빈 객체 만들기
+    let object2 = {};
+
+    // 1-2. 객체 선언하기
+    const object3 = {
+      name: '승관',
+      age: '26'
+    }
+
+
+    // 2. 객체 정보 수정하기
+    // 2-1. 빈객체에 정보 채워넣기(const 변수일 경우X)
+    object2 = {name:'벼리', age: 7}
+
+    // 2-2. 해당 객체의 '값' 바꾸기
+    object.age = 3;
+    object['name'] = '줄리'
+
+
+    // 3. 객체 정보 확인하기
+    console.log(object.age); //3
+    console.log(object['name']); //줄리
+
+    // 3-1. 없는 key를 불러올 경우, undefined
+    console.log(object.address);//undefined
+
+
+    // 4. 다차원 객체 생성, 수정, 확인
+    // 4-1. 생성
+    let object4 = {
+      result : true,
+      list : [
+        {id: 1, name:'jelly', age: 17, address: '경기도'},
+        {id: 2, name:'kelly', age: 20, address: '서울'}
+      ],
+      method1 : ()=>{
+        console.log('함수실행');
+      },
+      method2 : ()=>{
+        console.log('승관이 귀여운 함수 실행');
+      }
+    }
+
+    // 4-2. 수정
+    object4.result = false;
+    object4.list[1].name = 'sally';
+
+    // 4-3. 확인 및 함수실행
+    console.log(object4.result);//false
+    console.log(object4.list[1].name); //sally
+    console.log(object4.list[0].name); //jelly
+
+    object4.method2(); //승관이 귀여운 함수 실행
+    /* -------------------------------------------------------- */
+
+  </script>
+</body>
+</html>
