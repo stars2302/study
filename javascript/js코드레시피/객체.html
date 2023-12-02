@@ -83,6 +83,90 @@
     object4.method2(); //승관이 귀여운 함수 실행
     /* -------------------------------------------------------- */
 
+
+    /* --------------- 객체 복사하기(얕은..) -------------------- */
+
+    // 1. {...복사객체}
+    const object5 = {
+      name: '부승관',
+      position: '한국 보컬 탑',
+      special: '랫서팬더 닮은 외모',
+      arr : [1,2,3,4,5],
+      age: 14
+    }
+
+    const copyObj = {...object5};
+    console.log(copyObj); //{name: '부승관', position: '한국 보컬 탑', special: '랫서팬더 닮은 외모' ,arr: [1,2,3,4,5]}
+
+    // 2. Object.assign({}, 복사객체);
+    const copyObj2 = Object.assign({},object5);
+    console.log(copyObj2); //{name: '부승관', position: '한국 보컬 탑', special: '랫서팬더 닮은 외모' ,arr: [1,2,3,4,5]}
+
+
+    // ** 주의 : 원본 데이터가 바뀔 시 복사데이터도 함께 바뀜. 그래서 얕은복사..
+    // 배열의 데이터만 함께 바뀜...?
+    object5.special = '귀여움 한도초과';
+    object5.arr[0] = 100;
+    object5.age = 20;
+    console.log(object5);//{name: '부승관', position: '한국 보컬 탑', special: '귀여움 한도초과' ,arr: [100,2,3,4,5], age: 20;}
+    console.log(copyObj);//{name: '부승관', position: '한국 보컬 탑', special: '랫서팬더 닮은 외모' ,arr: [100,2,3,4,5], age: 14}
+    console.log(copyObj2);//{name: '부승관', position: '한국 보컬 탑', special: '랫서팬더 닮은 외모' ,arr: [100,2,3,4,5], age: 14}
+    /* -------------------------------------------------------- */
+
+
+    /* --------------- 객체 데이터 key 유무확인 -------------------- */
+
+    // 1. 객체.hasOwnProperty(key);
+    const object6 = {
+      name: '세모',
+      age: 4
+    }
+    console.log(object6.hasOwnProperty('address')); //false
+    console.log(object6.hasOwnProperty('name')); //true
+
+    // 1-1. 값(value)는 확인 불가능.
+    console.log(object6.hasOwnProperty('세모')); //false
+    
+    
+    // 2. key in 객체
+    console.log('name' in object6); //true
+    console.log('address' in object6); //false
+
+    // 2-1. 마찬가지로 값(value) X
+    console.log('세모' in object6); //false
+
+
+    // 3. 값(value)이 비어있지 않은지 확인
+    console.log(object6.name != null); //true
+    console.log(object6.name.includes('세')); //true
+    /* -------------------------------------------------------- */
+
+
+    /* ---------------- 객체 구성 확인 ---------------------- */
+    const object10 = {
+      name: 'semo',
+      age: 4,
+      address: 'america'
+    }
+
+    // 1. Object.keys(대상객체);
+    // 대상객체의 key를 배열형태로 반환.
+    console.log(Object.keys(object10)); //['name','age','address']
+
+    // 2. Object.values(대상객체);
+    // 대상객체의 value를 배열형태로 반환.
+    console.log(Object.values(object10)); //['semo', 4, 'america']
+
+    // 3. Object.entries(대상객체);
+    // 대상객체의 key,value를 2차배열로 반환
+    console.log(Object.entries(object10)); //[ ['name','semo'], ['age', 4], ['address','america'] ]
+    /* -------------------------------------------------------- */
+
+
+    /* ---------------- 객체 분할대입(비구조화 할당) ---------------------- */
+
+    /* -------------------------------------------------------- */
+
   </script>
 </body>
 </html>
