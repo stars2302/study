@@ -271,7 +271,7 @@
     const arr83 = ['귀여운','승관이','랫서팬더','닮음'];
     const find3 = arr83.findIndex(item=>item ==='승관이');
     console.log(find3); //1
-    /* -------------------------------------------------------- */
+    /* --------------------------- find 예제 ----------------------------- */
   </script>
   <h2>유저이름에 맞는 유저아이디 찾기</h2>
   <form action="#" id="uid_form">
@@ -325,6 +325,58 @@
 
 
     /* --------------- 배열 조건에 맞는 요소(여러개) ------------- */
+
+    // 1. 배열.filter((item,index,allArr)=>조건);
+    //조건에 맞는 요소를 필터링해 배열형태로 반환
+    const arr100 = [10,20,30,40,50];
+    const rs14 = arr100.filter(item=>item>20);
+    console.log(rs14); //[30,40,50]
+    /* ------------------------- filter예제 ------------------------------- */
+    </script>
+    <hr>
+    <h2>filter를 이용해 원하는 나이대의 유저 찾기</h2>
+    <button class="age_20" data-age="20">20세이상</button>
+    <button class="age_30" data-age="30">30세이상</button>
+    <button class="age_40" data-age="40">40세이상</button>
+    <button class="age_all" data-age="0">모두보기</button>
+    <ul class="age_user"></ul>
+    <script>
+      const age_user = [
+        {age: 24, name: '벼리'},
+        {age: 22, name: '세모'},
+        {age: 36, name: '라이언'},
+        {age: 15, name: '초코'},
+        {age: 40, name: '피치'},
+        {age: 55, name: '네이비'},
+        {age: 61, name: '젤리'},
+        {age: 30, name: '춘식'},
+        {age: 60, name: '제이지'},
+        {age: 17, name: '베어'}
+      ]
+
+      //리스트 출력
+      function listRe2(list){
+        document.querySelector('.age_user').innerHTML = ''; //초기화
+        list.sort((a,b)=>a.age-b.age); //나이 오름차순 정렬
+        for(let i of list) {
+          document.querySelector('.age_user').innerHTML += `
+            <li><p>${i.age}세 : ${i.name}</p></li>
+          `;
+        }
+      }
+      listRe2(age_user);
+
+
+      const ageBtns = document.querySelectorAll('button[class^="age_"]');
+
+      //20대이상
+      for(let btn of ageBtns){
+        btn.addEventListener('click',(e)=>{
+          const ageNum = e.target.getAttribute('data-age');
+          const ageNumList = age_user.filter(item=>item.age>=ageNum);
+          listRe2(ageNumList);
+        });
+      }
     /* -------------------------------------------------------- */
 
 
@@ -432,6 +484,7 @@
     1 : {name: 'apple', price: 1000},
     2 : {name: 'banana', price: 3000}
     */
+  /* -------------------------- sort 예제 ------------------------------ */
   </script>
   <hr>
   <h2>객체 유저리스트 오름차순 / 내림차순</h2>
@@ -498,6 +551,10 @@
       });
       listRe();
     });
+    /* -------------------------------------------------------- */
+
+
+    
   </script>
 
 </body>
