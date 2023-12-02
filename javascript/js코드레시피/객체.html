@@ -46,13 +46,18 @@
     object.age = 3;
     object['name'] = '줄리'
 
+    // 2-3. 객체에 새로운 key,value 추가하기
+    object2.address = '서울';
+
 
     // 3. 객체 정보 확인하기
     console.log(object.age); //3
     console.log(object['name']); //줄리
+    console.log(object2.address);//서울 
 
     // 3-1. 없는 key를 불러올 경우, undefined
     console.log(object.address);//undefined
+
 
 
     // 4. 다차원 객체 생성, 수정, 확인
@@ -199,6 +204,47 @@
 
     console.log(starName); //벼리
     console.log(name); // (빈값)
+    /* -------------------------------------------------------- */
+
+
+    /* ---------------- 객체 수정 제한하기 ---------------------- */
+
+    // 1. Object.freeze(객체)
+    // 객체의 수정을 제한하는 것. (추가, 삭제, 변경 모두 불가능)
+    const object13 = {
+      name: 'semo',
+      age: 20,
+      address: 'seoul'
+    }
+    //제한 전
+    object13.age = 7;
+    console.log(object13.age);//7
+
+    //제한 후
+    Object.freeze(object13);
+    object13.age = 10;
+    console.log(object13.age); //7
+
+
+    // 2. Object.isFrozen(객체)
+    // 객체 수정 제한 확인
+    console.log(Object.isFrozen(object13)); //true
+
+
+    // 3. 객체 뿐 아니라 배열에도 사용가능
+    const arr1 = [1,2,3];
+    Object.freeze(arr1);
+    // arr1.push(4); //오류남
+
+
+    // 4. convention 컨벤션
+    // !!!반드시 스크립트 시작부분에 표기하자!!!
+
+    // ES5에서 추가된 기능으로, 이전 버전에서 무시했던 에러부분의 관리를 도와주고 선언되지 않은 변수의 사용이나 변수의 삭제 등을 불가능하도록 만들어 안정적인 프로그래밍이 이루어지도록 한다.
+
+    // 5. 이외 방법
+    // 5-1. Object.seal() : 속성의 추가, 삭제 제한. 변경가능
+    // 5-2. Object.preventExtensions(): 속성의 추가 제한. 삭제, 변경가능
     /* -------------------------------------------------------- */
 
   </script>
