@@ -7,11 +7,12 @@
 </head>
 <body>
   <script>
-    /* ---------------- 현재 날짜 불러오기 ---------------------- */
+    /* ------------ 현재 날짜 불러오기(연,월,일 ...) ---------------- */
 
     // 0. const date = new Date();
     // 현재의.. 요일 월 일 연도 시간 시간기준 (나라 표준시)
     // 날짜 관련 함수는 new Date()의 객체를 함께 사용
+    // 새로고침 할때마다 바뀜.!
     const date = new Date();
     console.log(date); //Sat Dec 09 2023 13:00:44 GMT+0900 (한국 표준시)
 
@@ -33,8 +34,84 @@
 
     // 3. new Date().getDate();
     // 현재 일을 숫자로 반환
+    console.log(new Date().getDate()); //9
+    console.log(typeof(new Date().getDate())); //number
+
+
+    // 4. new Date().getHours();
+    // 현재 시를 숫자로 반환
+    console.log(new Date().getHours()); //17(현재 오후 5시)
+    console.log(typeof(new Date().getHours())); //number
+    
+
+    // 5. new Date().getMinutes();
+    // 현재 분을 숫자로 반환
+    console.log(new Date().getMinutes()); //9(현재 9분)
+    console.log(typeof(new Date().getMinutes())); //number
+
+
+    // 6. new Date().getSeconds();
+    // 현재 초를 숫자로 반환
+    console.log(new Date().getSeconds()); //43(현재 43초)
+    console.log(typeof(new Date().getSeconds())); //number
+
+
+    // 7. new Date().getMilliseconds();
+    // 현재 밀리초를 숫자로 반환
+    console.log(new Date().getMilliseconds()); //458(현재 458ms)
+    console.log(typeof(new Date().getMilliseconds())); //number
+
+
+    // 8. new Date().getDay();
+    // 현재 요일을 숫자로 반환. 0(일요일) ~ 6(토요일)
+    console.log(new Date().getDay()); //6(현재 토요일)
+    console.log(typeof(new Date().getDay())); //number
+    /* -------------------------------------------------------- */
+  </script>
+
+  <h2>실시간 시계</h2>
+  <p id="newDate"><span class="year"></span>년 <span class="month"></span>월 <span class="date"></span>일 <span class="day"></span> <span class="hours"></span> <span class="hour"></span>시 <span class="minute"></span>분 <span class="second"></span>초</p>
+  <script>
+    const date2 = document.querySelector('#newDate');
+    setInterval(()=>{
+      const date3 = new Date();
+      date2.querySelector('.year').innerText = date3.getFullYear();
+      date2.querySelector('.month').innerText = date3.getMonth()+1;
+      date2.querySelector('.date').innerText = date3.getDate();
+      const days = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
+      date2.querySelector('.day').innerText = days[date3.getDay()];
+
+      if(date3.getHours() < 12) {
+        date2.querySelector('.hour').innerText = date3.getHours().toString().padStart(2, '0');
+        date2.querySelector('.hours').innerText = '오전'
+      } else {
+        let hour = date3.getHours()-12
+        date2.querySelector('.hour').innerText = hour.toString().padStart(2, '0');
+        date2.querySelector('.hours').innerText = '오후'
+      }
+      date2.querySelector('.minute').innerText = date3.getMinutes().toString().padStart(2, '0');
+      date2.querySelector('.second').innerText = date3.getSeconds().toString().padStart(2, '0');
+    },1000);
     /* -------------------------------------------------------- */
 
+
+
+    /* ----------- 현재 날짜 형식다르게 불러오기 ----------------- */
+    // 1. new Date();
+    // Sat Dec 09 2023 17:40:41 GMT+0900 (한국 표준시)
+    console.log(new Date());
+
+    // 2. new Date().toLocaleString
+    // 2023. 12. 9. 오후 5:43:02
+    console.log(new Date().toLocaleString());
+
+    // 2-1. new Date().toLocaleDateString()  - 날짜
+    // 2023. 12. 9.
+    console.log(new Date().toLocaleDateString());
+  
+    // 2-2. new Date().toLocaleTimeStrinig()  - 시간
+    // 오후 5:42:35
+    console.log(new Date().toLocaleTimeString());
   </script>
 </body>
 </html>
