@@ -88,3 +88,68 @@ ul {
 }
 
 ***변수 주의점: -(하이픈), _(언더스코어) 의 구분이 없음. 즉, font_size와 font-size는 똑같은 변수명으로 취급. 
+
+
+** &의 뜻.. : 선택자 자신이라고 생각하면 편할듯.
+
+<scss>
+ul {
+  &:hover {
+    font-size: 20px;
+  }
+
+  div.container & {
+    color: #000;
+  }
+
+  :not(&){
+    color: #fff;
+  }
+}
+
+.copy {
+  width: 200px;
+  height: 200px;
+
+  &__first {
+    width: 300px;
+    height: 300px;
+  }
+
+  &--second {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+<css>
+ul:hover {
+  font-size: 20px;
+}
+div.container ul {
+  color: #000;
+}
+:not(ul) {
+  color: #fff;
+}
+
+
+.copy {
+  width: 200px;
+  height: 200px;
+}
+.copy__first {
+  width: 300px;
+  height: 300px;
+}
+.copy--second {
+  width: 400px;
+  height: 400px;
+}
+
+
+** import로 scss 파일 불러오기
+//comm.scss 파일 불러오기
+@import 'comm';
+
+이렇게 하면 comm에서 만든 $변수를 해당파일에서도 사용할 수 있음!@
