@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* ---------------- 현재 날짜 불러오기 ---------------------- */
+
+    // 0. const date = new Date();
+    // 현재의.. 요일 월 일 연도 시간 시간기준 (나라 표준시)
+    // 날짜 관련 함수는 new Date()의 객체를 함께 사용
+    const date = new Date();
+    console.log(date); //Sat Dec 09 2023 13:00:44 GMT+0900 (한국 표준시)
+
+
+    // 1. new Date().getFullYear();
+    // 현재 연도를 숫자로 반환
+    console.log(new Date().getFullYear()); //2023
+    console.log(typeof(new Date().getFullYear())); //number
+
+
+    // 2. new Date().getMonth();
+    // 현재 월을 숫자로 반환
+    console.log(new Date().getMonth()); //11 (현재 12월)
+    console.log(typeof(new Date().getMonth())); //number
+
+    // 2-1. getMonth만 인덱스 번호임. 그래서 +1로 가공 후 사용하자
+    console.log(new Date().getMonth()+1); //12 (현재 12월)
+
+
+    // 3. new Date().getDate();
+    // 현재 일을 숫자로 반환
+    /* -------------------------------------------------------- */
+
+  </script>
+</body>
+</html>
