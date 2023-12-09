@@ -1,0 +1,24 @@
+https://odada.me/70  참고!
+
+1. node.js 설치
+
+2. Node.js Command Prompt 에서
+npm install -g node-sass 명령어 실행 (sass 전역 설치)
+
+3. vscode Extensions Live Sass Compiler를 설치 (보라색 눈 모양)
+
+3-1. setting.json
+"liveSassCompile.settings.formats":[
+        // This is Default.
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "~/../css/"
+        },
+    ]
+
+추가하면 scss, css 폴더를 구분해서 만들 수 있음.!
+
+4. scss 폴더에 확장자 scss 파일을 만든 후 vscode 우측하단 watch sass 클릭! (자동으로 css, css.map 생성)
+
+5. 저장하면 자동으로 컴파일!
