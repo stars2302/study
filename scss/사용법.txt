@@ -22,3 +22,69 @@ npm install -g node-sass 명령어 실행 (sass 전역 설치)
 4. scss 폴더에 확장자 scss 파일을 만든 후 vscode 우측하단 watch sass 클릭! (자동으로 css, css.map 생성)
 
 5. 저장하면 자동으로 컴파일!
+
+
+
+---------------------------------------------------------------
+
+
+** 기본문법
+ul {
+  padding: 10px;
+  margin: 10px;
+  li {
+    list-style:none;
+  }
+  &hover: 
+}
+
+
+** 기본문법 2 
+<scss>
+.enlarge {
+  font-size: 14px;
+  transition: {
+    property: font-size;
+    duration: 4s;
+    delay: 2s;
+  }
+
+  &:hover { font-size: 36px; }
+}
+
+.info-page {
+  margin: auto {
+    bottom: 10px;
+    top: 2px;
+  }
+}
+
+<css>
+.enlarge {
+  font-size: 14px;
+  transition-property: font-size;
+  transition-duration: 4s;
+  transition-delay: 2s;
+}
+
+.enlarge:hover {font-size: 36px;}
+
+.info-page {
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 2px;
+}
+
+
+** 변수
+$변수명 : 속성값;
+ul {
+  color: $변수명
+}
+
+$black_color: #000;
+ul {
+  color: $black_color
+}
+
+***변수 주의점: -(하이픈), _(언더스코어) 의 구분이 없음. 즉, font_size와 font-size는 똑같은 변수명으로 취급. 
