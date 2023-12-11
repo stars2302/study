@@ -210,6 +210,46 @@
     /* -------------------------------------------------------- */
 
 
+    /* -------------- 현재시간 밀리초로 가져오기 --------------- */
+    
+    // 1. Date.now();
+    // 현재시간을 밀리초로 가져옴
+    console.log(Date.now()); //1702273944387
+    </script>
+  <hr>
+  <h2>새로고침 후 경과된 시간</h2>
+  <p><span class="date_now">0</span>초</p>
+  <script>
+    
+    // 2. 활용
+    // 새로고침 후 ~ 현재까지의 경고ㅏ된 시간
+    
+    const oldTime = Date.now(); // 새로고침 후 밀리초
+    setInterval(()=>{
+      const currentTime = Date.now(); // 1초마다 바뀌는 현재시간
+      const diff = Math.floor((currentTime - oldTime) / 1000); //밀리초 -> 초
+      document.querySelector('.date_now').innerText = diff;
+    },1000);
+  </script>
+  <hr>
+  <h2>카운트다운</h2>
+  <p id="container"><span class="count_down">10</span>초 남았습니다.</p>
+  <script>
+    let total_count = 10; //10초
+    const oldTime2 = Date.now(); //새로고침 후 밀리초
+
+    const countDownInterval = setInterval(() => {
+      const crtTime = Date.now(); //1초마다 계산되는 현재시간
+      const diff2 = Math.floor((crtTime - oldTime2) / 1000); //차이를 초로 환산
+      const countDown = total_count - diff2; //설정한 10초에서 차이값을 뺌.
+      if(countDown >= 0){
+        document.querySelector('.count_down').innerText = countDown;
+      } else {
+        document.querySelector('#container').innerText = 'Boom'; //0초 이하
+        clearInterval(countDownInterval); //clear 해주기! (실화면에선 반응하지 않아도 브라우저 내에서 계속 작동하고 있기때문.)
+      }
+      console.log(diff2);
+    }, 1000);
   </script>
 </body>
 </html>
