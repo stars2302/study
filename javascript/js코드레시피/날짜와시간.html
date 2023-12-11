@@ -235,6 +235,10 @@
   <h2>카운트다운</h2>
   <p id="container"><span class="count_down">10</span>초 남았습니다.</p>
   <script>
+
+    // 3. 활용2
+    //카운트다운
+
     let total_count = 10; //10초
     const oldTime2 = Date.now(); //새로고침 후 밀리초
 
@@ -249,6 +253,69 @@
         clearInterval(countDownInterval); //clear 해주기! (실화면에선 반응하지 않아도 브라우저 내에서 계속 작동하고 있기때문.)
       }
       console.log(diff2);
+    }, 1000);
+    /* -------------------------------------------------------- */
+
+
+
+    /* -------------- 아날로그 시계 만들어보기! --------------- */
+  </script>
+  <hr>
+  <div id="clock">
+    <div class="lineHour"></div>
+    <div class="lineMin"></div>
+    <div class="lineSec"></div>
+  </div>
+  <style>
+    #clock {
+      border-radius: 50%;
+      border: 3px solid #000;
+      width: 400px;
+      height: 400px;
+      background-color: rgba(255, 255, 0, .2);
+      position: relative;
+    }
+    .lineHour, .lineMin, .lineSec {
+      background: #000;
+      position: absolute;
+      transform-origin: bottom;
+      bottom: 50%;
+    }
+    .lineHour {
+      width: 10px;
+      height: 150px;
+      left: calc(50% - 5px);
+    }
+    .lineMin {
+      width: 4px;
+      height: 200px;
+      left: calc(50% - 2px);
+    }
+    .lineSec {
+      width: 2px;
+      height: 200px;
+      background-color: rgba(0, 0, 0, .8);
+      left: calc(50% - 1px);
+    }
+  </style>
+  <script>
+    setInterval(() => {
+      const now = new Date();
+
+      // 시,분,초 추출
+      const h = now.getHours();
+      const m = now.getMinutes();
+      const s = now.getSeconds();
+
+      //각도 계산
+      const H = h * (360/12) + m * (360/12/60); //시는 분 각도도 고려
+      const M = m * (360/60);
+      const S = s * (360/60);
+
+      //각도 css 반영
+      document.querySelector('.lineHour').style.transform = `rotate(${H}deg)`;
+      document.querySelector('.lineMin').style.transform = `rotate(${M}deg)`;
+      document.querySelector('.lineSec').style.transform = `rotate(${S}deg)`;
     }, 1000);
   </script>
 </body>
